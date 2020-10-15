@@ -1,4 +1,4 @@
-git+https://github.com/khaitruong922/kr-bot-new@rewrite
+git+https://github.com/khaitruong922/discord-bot@rewrite
 discord
 requests
 python-dotenv

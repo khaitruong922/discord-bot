@@ -34,14 +34,6 @@ async def on_member_remove(member):
 
 
 @client.command()
-async def offend(ctx, *name):
-    full_name = ' '.join(name)
-    message = [f'Chó {full_name} ngu vãi !!', f'Thằng gà {full_name}', f'Ngu như {full_name}',
-               f'Không chửi tục nói thề nha các bạn.']
-    await ctx.send(rd.choice(message))
-
-
-@client.command()
 async def ping(ctx):
     await ctx.send(str(int(client.latency * 1000)) + ' ms')
 
@@ -49,12 +41,6 @@ async def ping(ctx):
 @client.command()
 async def now(ctx):
     await ctx.send(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
-
-
-@client.command()
-async def dog(ctx):
-    await ctx.send('His name is Souma L')
-
 
 @client.command()
 async def info(ctx):
@@ -66,44 +52,15 @@ async def random(ctx, min, max):
     await ctx.send('Your number is %d' % (rd.randint(int(min), int(max))))
 
 
-@client.command()
-async def san(ctx):
-    await ctx.send('Hello baby')
-
-
 @random.error
 async def random_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Invalid input')
 
-
-@client.command()
-async def pick(ctx, *args):
-    await ctx.send(rd.choice(args))
-
-
-@pick.error
-async def pick(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Invalid input')
-
-
 @client.command()
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount=5):
     await ctx.channel.purge(limit=amount)
-
-
-@client.command()
-async def camel(ctx):
-    embed = discord.Embed(
-        title='Camel',
-        description='This is a camel',
-        color=discord.Color.blue()
-    )
-    embed.set_image(url='https://i.ibb.co/MGpYbwX/khoa.png')
-    await ctx.send(embed=embed)
-
 
 @client.command()
 async def champion(ctx, *args):
