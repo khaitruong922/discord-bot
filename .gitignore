@@ -2,4 +2,5 @@
 /Scripts
 /Include
 /.idea
+.env
 pyvenv.cfg
