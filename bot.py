@@ -20,12 +20,12 @@ board = Board()
 async def on_ready():
     game = ['League of Legends', 'League of Runeterra', 'VALORANT', 'Apex Legends', 'Among Us']
     await client.change_presence(status=discord.Status.online, activity=discord.Game(rd.choice(game)))
-    print('Bot is ready')
+    print('Bot is ready.')
 
 
 @client.event
 async def on_member_join(member):
-    print('%s has joined the KR gang.' % (member))
+    print('%s has joined the gang.' % (member))
 
 
 @client.event
@@ -56,7 +56,7 @@ async def random(ctx, min, max):
 @random.error
 async def random_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Invalid input')
+        await ctx.send('Invalid input.')
 
 
 @client.command()
@@ -88,9 +88,6 @@ async def lore(ctx, *args):
         await ctx.send('No data found.')
         return
     lore = data.get('lore')
-    if not lore:
-        await ctx.send('No data found.')
-        return
     await ctx.send(lore)
 
 
