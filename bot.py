@@ -65,11 +65,11 @@ async def clear(ctx, amount=5):
     await ctx.channel.purge(limit=amount)
 
 
-def fetch_champion_json(name):
+def fetch_champion_data(name):
     try:
         res = requests.get(f'http://ddragon.leagueoflegends.com/cdn/10.21.1/data/en_US/champion/{name}.json')
         res.raise_for_status()
-        return res.json()
+        return res.json().get('data').get(name)
     except:
         return None
 
@@ -83,11 +83,11 @@ def get_champion_name(args):
 @client.command()
 async def lore(ctx, *args):
     name = get_champion_name(args)
-    json = fetch_champion_json(name)
-    if not json:
+    data = fetch_champion_data(name)
+    if not data:
         await ctx.send('No data found.')
         return
-    lore = json.get('data').get(name).get('lore')
+    lore = data.get('lore')
     if not lore:
         await ctx.send('No data found.')
         return
@@ -100,12 +100,12 @@ async def skill(ctx, *args):
     key = args[-1].upper()
     # print(name, key)
 
-    json = fetch_champion_json(name)
-    if not json:
+    data = fetch_champion_data(name)
+    if not data:
         await ctx.send('No data found.')
         return
     if key == 'P':
-        passive = json.get('data').get(name).get('passive')
+        passive = data.get('passive')
         passive_name = passive.get('name')
         desc = passive.get('description')
         content = f'{key}: {passive_name}\n{desc}'
@@ -114,37 +114,40 @@ async def skill(ctx, *args):
     key_to_index = {'Q': 0, 'W': 1, 'E': 2, 'R': 3}
     index = key_to_index[key]
 
-    spells = json.get('data').get(name).get('spells')
+    spells = data.get('spells')
     spell = spells[index]
     spell_name = spell.get('name')
     desc = spell.get('description')
     content = f'{key}: {spell_name}\n{desc}'
     await ctx.send(content)
 
+
 @client.command()
 async def skin(ctx, *args):
     name = get_champion_name(args)
-    json = fetch_champion_json(name)
-    if not json:
+    data = fetch_champion_data(name)
+    if not data:
         await ctx.send('No data found.')
         return
-    skins = json.get('data').get(name).get('skins')
+    skins = data.get('skins')
     content = ', '.join([skin.get('name') for skin in skins][1:])
     await ctx.send(content)
+
 
 @client.command(aliases=['tip'])
 async def tips(ctx, *args):
     name = get_champion_name(args)
-    json = fetch_champion_json(name)
-    if not json:
+    data = fetch_champion_data(name)
+    if not data:
         await ctx.send('No data found.')
         return
-    ally_tips = json.get('data').get(name).get('allytips')
-    counter_tips = json.get('data').get(name).get('enemytips')
-    ally_content = '\n'.join(f'{i+1}. {ally_tip}' for i,ally_tip in enumerate(ally_tips))
-    counter_content = '\n'.join(f'{i+1}. {counter_tip}' for i,counter_tip in enumerate(counter_tips))
+    ally_tips = data.get('allytips')
+    counter_tips = data.get('enemytips')
+    ally_content = '\n'.join(f'{i + 1}. {ally_tip}' for i, ally_tip in enumerate(ally_tips))
+    counter_content = '\n'.join(f'{i + 1}. {counter_tip}' for i, counter_tip in enumerate(counter_tips))
     content = f'- Ally tips:\n{ally_content}\n- Counter tips:\n{counter_content}'
     await ctx.send(content)
+
 
 @client.command(aliases=['write'])
 async def log(ctx, *args):
