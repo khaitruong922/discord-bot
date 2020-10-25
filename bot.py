@@ -87,8 +87,8 @@ async def lore(ctx, *args):
     if not data:
         await ctx.send('No data found.')
         return
-    lore = data.get('lore')
-    await ctx.send(lore)
+    content = data.get('lore')
+    await ctx.send(content)
 
 
 @client.command()
