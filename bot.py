@@ -161,8 +161,9 @@ async def log(ctx, *args):
 async def github(ctx, username):
     await ctx.send(f'https://github.com/{username}')
 
+
 @client.command()
-async def repo(ctx, username,repo):
+async def repo(ctx, username, repo):
     await ctx.send(f'https://github.com/{username}/{repo}')
 
 
