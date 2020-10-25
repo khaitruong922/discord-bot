@@ -157,6 +157,15 @@ async def log(ctx, *args):
     await ctx.send(content)
 
 
+@client.command()
+async def github(ctx, username):
+    await ctx.send(f'https://github.com/{username}')
+
+@client.command()
+async def repo(ctx, username,repo):
+    await ctx.send(f'https://github.com/{username}/{repo}')
+
+
 @client.command(aliases=['view', 'viewlog'])
 async def view_log(ctx, latest=10):
     content = TEXT_FILE.get_latest_lines(latest)
