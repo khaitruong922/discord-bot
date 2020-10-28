@@ -84,7 +84,10 @@ async def lore(ctx, *args):
     if not data:
         await ctx.send('No data found.')
         return
-    content = data.get('lore')
+    name = data.get('name')
+    title = data.get('title')
+    lore_content = data.get('lore')
+    content = f'{name} - {title}\n{lore_content}'
     await ctx.send(content)
 
 
@@ -111,8 +114,12 @@ async def skill(ctx, *args):
     spells = data.get('spells')
     spell = spells[index]
     spell_name = spell.get('name')
+    cooldown = spell.get('cooldown')
+    cooldown = '/'.join(map(str, cooldown))
+    cost = spell.get('cost')
+    cost = '/'.join(map(str, cost))
     desc = spell.get('description')
-    content = f'{key}: {spell_name}\n{desc}'
+    content = f'{key}: {spell_name}\nCooldown: {cooldown}\nCost: {cost}\n{desc}'
     await ctx.send(content)
 
 
