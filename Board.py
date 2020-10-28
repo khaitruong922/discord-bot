@@ -1,3 +1,4 @@
+import discord
 class Board:
     BLANK = '?'
     X = 'X'
@@ -62,3 +63,22 @@ class Board:
 
     def is_full(self):
         return not any(move == self.BLANK for move in self.board)
+
+    def get_guide_embed(self):
+        return discord.Embed(
+            title=f'Discord Tic Tac Toe',
+            description=self.get_guide(),
+            color=discord.Color.blue()
+        )
+
+    def get_board_embed(self):
+        return discord.Embed(
+            description=self.get_board_data(),
+            color=discord.Color.red()
+        )
+
+    def get_turn_embed(self):
+        return discord.Embed(
+            description=self.get_next_turn_message(),
+            color=discord.Color.purple()
+        )

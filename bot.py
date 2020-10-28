@@ -3,7 +3,6 @@ import requests
 import random as rd
 import os
 from Board import Board
-from File import File
 from discord.ext import commands
 from datetime import datetime
 from dotenv import load_dotenv
@@ -11,8 +10,6 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 client = commands.Bot(command_prefix='.')
-TEXT_FILENAME = 'log.txt'
-TEXT_FILE = File(TEXT_FILENAME)
 board = Board()
 
 
@@ -146,17 +143,6 @@ async def tips(ctx, *args):
     await ctx.send(content)
 
 
-@client.command(aliases=['write'])
-async def log(ctx, *args):
-    message = ' '.join(args)
-    time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    username = ctx.message.author.name
-    content = f'[{time}] {username}: {message} \n'
-    TEXT_FILE.append(content)
-
-    await ctx.send(content)
-
-
 @client.command()
 async def github(ctx, username):
     await ctx.send(f'https://github.com/{username}')
@@ -165,46 +151,6 @@ async def github(ctx, username):
 @client.command()
 async def repo(ctx, username, repo):
     await ctx.send(f'https://github.com/{username}/{repo}')
-
-
-@client.command(aliases=['view', 'viewlog'])
-async def view_log(ctx, latest=10):
-    content = TEXT_FILE.get_latest_lines(latest)
-    embed = discord.Embed(
-        title=f'Log history ({latest} latest) ',
-        description=content,
-        color=discord.Color.blue()
-    )
-    await ctx.send(embed=embed)
-
-
-@client.command(aliases=['clearlog'])
-async def clear_log(ctx, latest=1):
-    content = TEXT_FILE.get_lines_until_latest(latest)
-    TEXT_FILE.write(content)
-    await ctx.send(f"Clear {latest} line(s).")
-
-
-def get_guide_embed():
-    return discord.Embed(
-        title=f'Discord Tic Tac Toe',
-        description=board.get_guide(),
-        color=discord.Color.blue()
-    )
-
-
-def get_board_embed():
-    return discord.Embed(
-        description=board.get_board_data(),
-        color=discord.Color.red()
-    )
-
-
-def get_turn_embed():
-    return discord.Embed(
-        description=board.get_next_turn_message(),
-        color=discord.Color.purple()
-    )
 
 
 def get_win_message_embed():
@@ -222,9 +168,9 @@ def get_win_message_embed():
 @client.command(aliases=['ttt'])
 async def tictactoe(ctx):
     board.reset_board()
-    await ctx.send(embed=get_guide_embed())
-    await ctx.send(embed=get_board_embed())
-    await ctx.send(embed=get_turn_embed())
+    await ctx.send(embed=board.get_guide_embed())
+    await ctx.send(embed=board.get_board_embed())
+    await ctx.send(embed=board.get_turn_embed())
 
 
 @client.command(aliases=['m', 'place'])
@@ -239,7 +185,7 @@ async def move(ctx, *args):
     move = int(message)
     board.place(move)
 
-    await ctx.send(embed=get_board_embed())
+    await ctx.send(embed=board.get_board_embed())
 
     # Print out message and reset game if there is a winner or tie.
     if board.get_win_message():
@@ -248,7 +194,7 @@ async def move(ctx, *args):
         return
     # If not, other player will play.
     board.switch_player()
-    await ctx.send(embed=get_turn_embed())
+    await ctx.send(embed=board.get_turn_embed())
 
 
 client.run(TOKEN)
