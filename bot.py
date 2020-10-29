@@ -195,7 +195,7 @@ async def random_user(ctx: commands.Context):
     await ctx.send(member.name)
 
 
-@bot.command(brief='Show the URL of a GitHub user.')
+@bot.command(brief='Show the info of a GitHub user.')
 async def github(ctx: commands.Context, username):
     user = fetch_github_user(username)
     if not user:
@@ -218,7 +218,7 @@ async def github(ctx: commands.Context, username):
     await ctx.send(embed=embed)
 
 
-@bot.command(brief='Show the URL of a GitHub repo.')
+@bot.command(brief='Show the info of a GitHub repo.')
 async def repo(ctx: commands.Context, username, repo_name):
     repo = fetch_github_repo(username, repo_name)
     if not repo:
