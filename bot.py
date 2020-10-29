@@ -9,7 +9,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-bot = commands.Bot(command_prefix='.', case_insensitive=True)
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='.', case_insensitive=True,intents=intents)
+
+
 REPO_URL = 'https://github.com/khaitruong922/discord-bot'
 TIME_FORMAT = '%d/%m/%Y %H:%M:%S'
 board = Board()
@@ -166,6 +169,12 @@ async def tips(ctx, *args):
     counter_content = '\n'.join(f'{i + 1}. {counter_tip}' for i, counter_tip in enumerate(counter_tips))
     content = f'- Ally tips:\n{ally_content}\n- Counter tips:\n{counter_content}'
     await ctx.send(content)
+
+
+@bot.command(brief='Show the name of a random user.',aliases=['randomuser'])
+async def random_user(ctx):
+    member = rd.choice(ctx.guild.members)
+    await ctx.send(member.name)
 
 
 @bot.command(brief='Show the URL of a GitHub user.')
