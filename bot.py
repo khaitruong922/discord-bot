@@ -10,8 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix='.', case_insensitive=True,intents=intents)
-
+bot = commands.Bot(command_prefix='.', case_insensitive=True, intents=intents)
 
 REPO_URL = 'https://github.com/khaitruong922/discord-bot'
 TIME_FORMAT = '%d/%m/%Y %H:%M:%S'
@@ -31,22 +30,23 @@ async def on_ready():
 
 
 @bot.event
-async def on_member_join(member):
-    await bot.get_channel(channel_ids.get('welcome')).send("I'm online.")
+async def on_guild_join(member):
+    await bot.get_channel(channel_ids.get('welcome')).send(f"{member} has joined the server.")
 
 
 @bot.event
-async def on_member_remove(member):
-    await bot.get_channel(channel_ids.get('welcome')).send("I'm online.")
+async def on_guild_remove(member):
+    await bot.get_channel(channel_ids.get('welcome')).send(f"{member} has left the server.")
 
 
 @bot.command(brief='Show current latency.')
-async def ping(ctx):
+async def ping(ctx: commands.Context):
+    await ctx.trigger_typing()
     await ctx.send(str(int(bot.latency * 1000)) + ' ms')
 
 
 @bot.command(brief='Show current time.')
-async def now(ctx):
+async def now(ctx: commands.Context):
     await ctx.send(datetime.now().strftime(TIME_FORMAT))
 
 
@@ -56,7 +56,7 @@ async def hello(ctx: commands.Context):
 
 
 @bot.command(brief='Show bot info.')
-async def info(ctx):
+async def info(ctx: commands.Context):
     await ctx.send(
         f'Source code: {REPO_URL}\nLast updated: {datetime.fromtimestamp(os.path.getmtime(__file__)).strftime(TIME_FORMAT)}')
 
@@ -67,7 +67,7 @@ async def random(ctx, _min: int, _max: int):
 
 
 @random.error
-async def random_error(ctx, error):
+async def random_error(ctx: commands.Context, error):
     if isinstance(error, commands.BadArgument):
         await ctx.send('Invalid input.')
 
@@ -79,7 +79,7 @@ async def here(ctx: commands.Context):
 
 @bot.command(brief='Clear a number of messages in a channel')
 @commands.has_permissions(manage_messages=True)
-async def clear(ctx, amount=1):
+async def clear(ctx: commands.Context, amount=1):
     await ctx.channel.purge(limit=amount)
 
 
@@ -88,7 +88,25 @@ def fetch_champion_data(name):
         res = requests.get(f'http://ddragon.leagueoflegends.com/cdn/10.21.1/data/en_US/champion/{name}.json')
         res.raise_for_status()
         return res.json().get('data').get(name)
-    except:
+    except requests.exceptions.HTTPError:
+        return None
+
+
+def fetch_github_user(username):
+    try:
+        res = requests.get(f'https://api.github.com/users/{username}')
+        res.raise_for_status()
+        return res.json()
+    except requests.exceptions.HTTPError:
+        return None
+
+
+def fetch_github_repo(username, repo_name):
+    try:
+        res = requests.get(f'https://api.github.com/repos/{username}/{repo_name}')
+        res.raise_for_status()
+        return res.json()
+    except requests.exceptions.HTTPError:
         return None
 
 
@@ -99,7 +117,7 @@ def get_champion_name(args):
 
 
 @bot.command(brief='Show the lore of a LoL champion')
-async def lore(ctx, *args):
+async def lore(ctx: commands.Context, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
     if not data:
@@ -113,7 +131,7 @@ async def lore(ctx, *args):
 
 
 @bot.command(brief='Show an ability description of a LoL champion', aliases=['ability'])
-async def skill(ctx, *args):
+async def skill(ctx: commands.Context, *args):
     name = get_champion_name(args[:-1])
     key = args[-1].upper()
     # print(name, key)
@@ -145,7 +163,7 @@ async def skill(ctx, *args):
 
 
 @bot.command(brief='List all skins of a LoL champion.')
-async def skin(ctx, *args):
+async def skin(ctx: commands.Context, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
     if not data:
@@ -157,7 +175,7 @@ async def skin(ctx, *args):
 
 
 @bot.command(aliases=['tip'], brief='List all tips related to a LoL champion.')
-async def tips(ctx, *args):
+async def tips(ctx: commands.Context, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
     if not data:
@@ -171,32 +189,68 @@ async def tips(ctx, *args):
     await ctx.send(content)
 
 
-@bot.command(brief='Show the name of a random user.',aliases=['randomuser'])
-async def random_user(ctx):
+@bot.command(brief='Show the name of a random user.', aliases=['randomuser'])
+async def random_user(ctx: commands.Context):
     member = rd.choice(ctx.guild.members)
     await ctx.send(member.name)
 
 
 @bot.command(brief='Show the URL of a GitHub user.')
-async def github(ctx, username):
-    await ctx.send(f'https://github.com/{username}')
+async def github(ctx: commands.Context, username):
+    user = fetch_github_user(username)
+    if not user:
+        await ctx.send(f'User {username} not found.')
+        return
+    title = f'{username}'
+    url = f'https://github.com/{username}'
+    followers = user.get("followers")
+    following = user.get("following")
+    public_repos = user.get("public_repos")
+    avatar_url = user.get("avatar_url")
+    desc = f'Followers: {followers}\nFollowings: {following}\nPublic repos: {public_repos}'
+    embed = discord.Embed(
+        title=title,
+        url=url,
+        description=desc,
+        color=discord.Color.red()
+    )
+    embed.set_thumbnail(url=avatar_url)
+    await ctx.send(embed=embed)
 
 
 @bot.command(brief='Show the URL of a GitHub repo.')
-async def repo(ctx, username, repo):
-    await ctx.send(f'https://github.com/{username}/{repo}')
+async def repo(ctx: commands.Context, username, repo_name):
+    repo = fetch_github_repo(username, repo_name)
+    if not repo:
+        await ctx.send(f'Repository {username}/{repo_name} not found.')
+        return
+    url = f'https://github.com/{username}/{repo_name}'
+    title = repo.get('full_name')
+    stars = repo.get('stargazers_count')
+    watchers = repo.get('watchers_count')
+    language = repo.get('language')
+    desc = f'Stars: {stars}\nWatchers: {watchers}\nLanguage: {language}'
+    avatar_url = repo.get("owner").get("avatar_url")
+    embed = discord.Embed(
+        title=title,
+        url=url,
+        description=desc,
+        color=discord.Color.red()
+    )
+    embed.set_thumbnail(url=avatar_url)
+    await ctx.send(embed=embed)
 
 
 @bot.command(aliases=['ttt'], brief='Show TicTacToe rules.')
-async def tictactoe(ctx):
+async def tictactoe(ctx: commands.Context):
     board.reset_board()
     await ctx.send(embed=board.get_guide_embed())
     await ctx.send(embed=board.get_board_embed())
     await ctx.send(embed=board.get_turn_embed())
 
 
-@bot.command(aliases=['m', 'place'], brief='Make a move in TicTacToe board.', description='Valid inputs: 1-9')
-async def move(ctx, *args):
+@bot.command(aliases=['m'], brief='Make a move in TicTacToe board.', description='Valid inputs: 1-9')
+async def move(ctx: commands.Context, *args):
     message = ' '.join(*args)
     status = board.get_move_status(message)
 
