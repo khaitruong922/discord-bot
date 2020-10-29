@@ -9,43 +9,51 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-bot = commands.Bot(command_prefix='.')
+bot = commands.Bot(command_prefix='.', case_insensitive=True)
+REPO_URL = 'https://github.com/khaitruong922/discord-bot'
+TIME_FORMAT = '%d/%m/%Y %H:%M:%S'
 board = Board()
+channel_ids = {
+    'welcome': 770950580373946390,
+    'bot-command': 751355121455071233,
+}
 
 
 @bot.event
 async def on_ready():
     game = ['League of Legends', 'League of Runeterra', 'VALORANT', 'Apex Legends', 'Among Us']
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(rd.choice(game)))
+    # await bot.get_channel(channel_ids.get('bot-command')).send("I'm online.")
     print('Bot is ready.')
 
 
 @bot.event
 async def on_member_join(member):
-    print('%s has joined the gang.' % (member))
+    await bot.get_channel(channel_ids.get('welcome')).send("I'm online.")
 
 
 @bot.event
 async def on_member_remove(member):
-    print('%s has left the gang.' % (member))
+    await bot.get_channel(channel_ids.get('welcome')).send("I'm online.")
 
 
-@bot.command()
+@bot.command(brief='Show current latency.')
 async def ping(ctx):
     await ctx.send(str(int(bot.latency * 1000)) + ' ms')
 
 
-@bot.command()
+@bot.command(brief='Show current time.')
 async def now(ctx):
-    await ctx.send(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+    await ctx.send(datetime.now().strftime(TIME_FORMAT))
 
 
-@bot.command()
+@bot.command(brief='Show bot info.')
 async def info(ctx):
-    await ctx.send('I am a bot.')
+    await ctx.send(
+        f'Source code: {REPO_URL}\nLast updated: {datetime.fromtimestamp(os.path.getmtime(__file__)).strftime(TIME_FORMAT)}')
 
 
-@bot.command()
+@bot.command(brief='Get a random number in a range.')
 async def random(ctx, _min: int, _max: int):
     await ctx.send('Your number is %d' % (rd.randint(_min, _max)))
 
@@ -56,14 +64,14 @@ async def random_error(ctx, error):
         await ctx.send('Invalid input.')
 
 
-@bot.command()
+@bot.command(brief='Display current channel and server.')
 async def here(ctx: commands.Context):
-    await ctx.send(ctx.guild)
+    await ctx.send(f'Server: {ctx.guild}\nChannel: {ctx.channel}')
 
 
-@bot.command()
+@bot.command(brief='Clear a number of messages in a channel')
 @commands.has_permissions(manage_messages=True)
-async def clear(ctx, amount=5):
+async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=amount)
 
 
@@ -82,7 +90,7 @@ def get_champion_name(args):
     return name
 
 
-@bot.command()
+@bot.command(brief='Show the lore of a LoL champion')
 async def lore(ctx, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
@@ -96,7 +104,7 @@ async def lore(ctx, *args):
     await ctx.send(content)
 
 
-@bot.command()
+@bot.command(brief='Show an ability description of a LoL champion', aliases=['ability'])
 async def skill(ctx, *args):
     name = get_champion_name(args[:-1])
     key = args[-1].upper()
@@ -128,7 +136,7 @@ async def skill(ctx, *args):
     await ctx.send(content)
 
 
-@bot.command()
+@bot.command(brief='List all skins of a LoL champion.')
 async def skin(ctx, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
@@ -140,7 +148,7 @@ async def skin(ctx, *args):
     await ctx.send(content)
 
 
-@bot.command(aliases=['tip'])
+@bot.command(aliases=['tip'], brief='List all tips related to a LoL champion.')
 async def tips(ctx, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
@@ -155,17 +163,17 @@ async def tips(ctx, *args):
     await ctx.send(content)
 
 
-@bot.command()
+@bot.command(brief='Show the URL of a GitHub user.')
 async def github(ctx, username):
     await ctx.send(f'https://github.com/{username}')
 
 
-@bot.command()
+@bot.command(brief='Show the URL of a GitHub repo.')
 async def repo(ctx, username, repo):
     await ctx.send(f'https://github.com/{username}/{repo}')
 
 
-@bot.command(aliases=['ttt'])
+@bot.command(aliases=['ttt'], brief='Show TicTacToe rules.')
 async def tictactoe(ctx):
     board.reset_board()
     await ctx.send(embed=board.get_guide_embed())
@@ -173,7 +181,7 @@ async def tictactoe(ctx):
     await ctx.send(embed=board.get_turn_embed())
 
 
-@bot.command(aliases=['m', 'place'])
+@bot.command(aliases=['m', 'place'], brief='Make a move in TicTacToe board.', description='Valid inputs: 1-9')
 async def move(ctx, *args):
     message = ' '.join(*args)
     status = board.get_move_status(message)
