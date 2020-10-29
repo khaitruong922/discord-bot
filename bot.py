@@ -47,6 +47,11 @@ async def now(ctx):
     await ctx.send(datetime.now().strftime(TIME_FORMAT))
 
 
+@bot.command(brief='Make bot say hello :D')
+async def hello(ctx: commands.Context):
+    await ctx.send(f'Hello {ctx.author.name}!')
+
+
 @bot.command(brief='Show bot info.')
 async def info(ctx):
     await ctx.send(
@@ -60,7 +65,7 @@ async def random(ctx, _min: int, _max: int):
 
 @random.error
 async def random_error(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
+    if isinstance(error, commands.BadArgument):
         await ctx.send('Invalid input.')
 
 
