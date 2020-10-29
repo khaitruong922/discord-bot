@@ -9,45 +9,45 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-client = commands.Bot(command_prefix='.')
+bot = commands.Bot(command_prefix='.')
 board = Board()
 
 
-@client.event
+@bot.event
 async def on_ready():
     game = ['League of Legends', 'League of Runeterra', 'VALORANT', 'Apex Legends', 'Among Us']
-    await client.change_presence(status=discord.Status.online, activity=discord.Game(rd.choice(game)))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(rd.choice(game)))
     print('Bot is ready.')
 
 
-@client.event
+@bot.event
 async def on_member_join(member):
     print('%s has joined the gang.' % (member))
 
 
-@client.event
+@bot.event
 async def on_member_remove(member):
     print('%s has left the gang.' % (member))
 
 
-@client.command()
+@bot.command()
 async def ping(ctx):
-    await ctx.send(str(int(client.latency * 1000)) + ' ms')
+    await ctx.send(str(int(bot.latency * 1000)) + ' ms')
 
 
-@client.command()
+@bot.command()
 async def now(ctx):
     await ctx.send(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 
 
-@client.command()
+@bot.command()
 async def info(ctx):
     await ctx.send('I am a bot.')
 
 
-@client.command()
-async def random(ctx, min, max):
-    await ctx.send('Your number is %d' % (rd.randint(int(min), int(max))))
+@bot.command()
+async def random(ctx, _min: int, _max: int):
+    await ctx.send('Your number is %d' % (rd.randint(_min, _max)))
 
 
 @random.error
@@ -56,7 +56,12 @@ async def random_error(ctx, error):
         await ctx.send('Invalid input.')
 
 
-@client.command()
+@bot.command()
+async def here(ctx: commands.Context):
+    await ctx.send(ctx.guild)
+
+
+@bot.command()
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount=5):
     await ctx.channel.purge(limit=amount)
@@ -77,7 +82,7 @@ def get_champion_name(args):
     return name
 
 
-@client.command()
+@bot.command()
 async def lore(ctx, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
@@ -91,7 +96,7 @@ async def lore(ctx, *args):
     await ctx.send(content)
 
 
-@client.command()
+@bot.command()
 async def skill(ctx, *args):
     name = get_champion_name(args[:-1])
     key = args[-1].upper()
@@ -123,7 +128,7 @@ async def skill(ctx, *args):
     await ctx.send(content)
 
 
-@client.command()
+@bot.command()
 async def skin(ctx, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
@@ -135,7 +140,7 @@ async def skin(ctx, *args):
     await ctx.send(content)
 
 
-@client.command(aliases=['tip'])
+@bot.command(aliases=['tip'])
 async def tips(ctx, *args):
     name = get_champion_name(args)
     data = fetch_champion_data(name)
@@ -150,29 +155,17 @@ async def tips(ctx, *args):
     await ctx.send(content)
 
 
-@client.command()
+@bot.command()
 async def github(ctx, username):
     await ctx.send(f'https://github.com/{username}')
 
 
-@client.command()
+@bot.command()
 async def repo(ctx, username, repo):
     await ctx.send(f'https://github.com/{username}/{repo}')
 
 
-def get_win_message_embed():
-    tie = board.get_win_message() == board.TIE
-    title = "Tie" if tie else "Victory"
-    description = "" if tie else board.get_win_message()
-    color = discord.Color.gold() if tie else discord.Color.green()
-    return discord.Embed(
-        title=title,
-        description=description,
-        color=color
-    )
-
-
-@client.command(aliases=['ttt'])
+@bot.command(aliases=['ttt'])
 async def tictactoe(ctx):
     board.reset_board()
     await ctx.send(embed=board.get_guide_embed())
@@ -180,7 +173,7 @@ async def tictactoe(ctx):
     await ctx.send(embed=board.get_turn_embed())
 
 
-@client.command(aliases=['m', 'place'])
+@bot.command(aliases=['m', 'place'])
 async def move(ctx, *args):
     message = ' '.join(*args)
     status = board.get_move_status(message)
@@ -196,7 +189,7 @@ async def move(ctx, *args):
 
     # Print out message and reset game if there is a winner or tie.
     if board.get_win_message():
-        await ctx.send(embed=get_win_message_embed())
+        await ctx.send(embed=board.get_win_message_embed())
         board.reset_board()
         return
     # If not, other player will play.
@@ -204,4 +197,4 @@ async def move(ctx, *args):
     await ctx.send(embed=board.get_turn_embed())
 
 
-client.run(TOKEN)
+bot.run(TOKEN)

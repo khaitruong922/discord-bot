@@ -1,4 +1,6 @@
 import discord
+
+
 class Board:
     BLANK = '?'
     X = 'X'
@@ -81,4 +83,15 @@ class Board:
         return discord.Embed(
             description=self.get_next_turn_message(),
             color=discord.Color.purple()
+        )
+
+    def get_win_message_embed(self):
+        tie = self.get_win_message() == self.TIE
+        title = "Tie" if tie else "Victory"
+        description = "" if tie else self.get_win_message()
+        color = discord.Color.gold() if tie else discord.Color.green()
+        return discord.Embed(
+            title=title,
+            description=description,
+            color=color
         )
