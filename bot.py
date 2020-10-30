@@ -2,6 +2,7 @@ import discord
 import requests
 import random as rd
 import os
+import json
 from Board import Board
 from discord.ext import commands
 from datetime import datetime
@@ -9,6 +10,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+MODEL_FILENAME = 'model.json'
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='.', case_insensitive=True, intents=intents)
 
@@ -53,6 +55,47 @@ async def now(ctx: commands.Context):
 @bot.command(brief='Make bot say hello :D')
 async def hello(ctx: commands.Context):
     await ctx.send(f'Hello {ctx.author.name}!')
+
+
+def format_question(question):
+    question = ''.join(question.split()).lower()
+    new_question = ""
+    for c in question:
+        if c.isalnum():
+            new_question += c
+    return new_question
+
+
+@bot.command(brief='Train bot')
+async def train(ctx: commands.Context, *args):
+    question, answer = ' '.join(args).split("|")
+    question_key = format_question(question)
+
+    answer = answer.strip()
+    with open(MODEL_FILENAME) as file:
+        data = json.load(file)
+        answers = data.get(question_key, [])
+        if answer not in answers:
+            answers.append(answer)
+        data[question_key] = answers
+        with open(MODEL_FILENAME, 'w') as file:
+            json_text = json.dumps(data, indent=4)
+            file.write(json_text)
+    await ctx.send(f'Question: {question}\nAnswer: {answer}')
+    print(question)
+
+
+@bot.command(brief='Ask bot')
+async def ask(ctx: commands.Context, *args):
+    question = ''.join(args)
+    question_key = format_question(question)
+    with open(MODEL_FILENAME) as file:
+        data = json.load(file)
+        answers = data.get(question_key, [])
+        if not answers:
+            await ctx.send('Em ko biet')
+            return
+        await ctx.send(rd.choice(answers))
 
 
 @bot.command(brief='Make bot say goodbye :D')
