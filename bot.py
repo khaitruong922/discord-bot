@@ -89,11 +89,8 @@ async def chat(ctx: commands.Context, *args):
     question_key = format_question(question)
     with open(MODEL_FILENAME) as file:
         data = json.load(file)
-        answers = data.get(question_key, [])
-        if not answers:
-            answers = data.get('ngoaitamhieubiet', [])
-            if not answers:
-                answers = ["Em không biết câu này. Dạy em với [name] ơi :yum:"]
+        answers = data.get(question_key,
+                           data.get('ngoaitamhieubiet', ["Em không biết câu này. Dạy em với [name] ơi :yum:"]))
         answer = rd.choice(answers)
         answer = parse_answer(answer, ctx)
         await ctx.send(answer)
