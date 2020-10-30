@@ -81,8 +81,7 @@ async def train(ctx: commands.Context, *args):
         with open(MODEL_FILENAME, 'w') as file:
             json_text = json.dumps(data, indent=4)
             file.write(json_text)
-    await ctx.send(f'Question: {question}\nAnswer: {answer}')
-    print(question)
+    await ctx.send(f':thumbsup: ')
 
 
 @bot.command(brief='Ask bot')
