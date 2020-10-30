@@ -1,90 +1,149 @@
 {
-  "emancomchua": [
-    "em chua an",
-    "em an roi",
-    "em moi an xong"
-  ],
-  "emmaytuoiroi": [
-    "em chua 18",
-    "em 2k2",
-    "em 2k1",
-    "ahihi"
-  ],
-  "emcobantraichua": [
-    "\u0111o\u00e1n xem"
-  ],
-  "soloyasuoko": [
-    "\ud83d\udca9",
-    "ko"
-  ],
-  "aideptrainhat": [
-    "Ai c\u0169ng \u0111\u1eb9p tr\u1eeb Ho\u00e0ng \ud83d\ude06"
-  ],
-  "emdinguchua": [
-    "ch\u01b0a",
-    "em ng\u1ee7 r\u1ed3i ahihi"
-  ],
-  "emdeplam": [
-    "em cam on hihih"
-  ],
-  "emmuonangi": [
-    "t\u00f9y anh"
-  ],
-  "cachbuildyasuo": [
-    "Build full AP, max W"
-  ],
-  "banthayminhcoxinhgaiko": [
-    "C\u0169ng \u0111\u01b0\u1ee3c, g\u1ea7n b\u1eb1ng ny tao"
-  ],
-  "emcoyeuanhkhong": [
-    "ko",
-    "Ai l\u1edbp du p\u1eb7c p\u1eb7c"
-  ],
-  "voduyenvai": [
-    "V\u00f4 duy\u00ean t\u1eeb nh\u1ecf, ok"
-  ],
-  "ga": [
-    "Solo daxua ko ?????"
-  ],
-  "ko": [
-    "g\u00e0 vkl"
-  ],
-  "lamnguoiyeuemnhe": [
-    "Anh ngh\u0129 ch\u00fang ta ko h\u1ee3p nhau, m\u00ecnh c\u00f3 th\u1ec3 l\u00e0m b\u1ea1n \u0111k ko"
-  ],
-  "taosereportmay": [
-    "Cho xin c\u00e1i tu\u1ed5i nh\u00e9"
-  ],
-  "gh3": [
-    "Chuy\u1ec7n =))"
-  ],
-  "lamsaodecoduoctraitimem": [
-    "C\u00f3 nhi\u1ec1u ti\u1ec1n ko \u0111\u00e3 :?"
-  ],
-  "toilaai": [
-    "B\u1ea1n l\u00e0 [name]!"
-  ],
-  "nguoiaylaai": [
-    "Ng\u01b0\u1eddi \u1ea5y l\u00e0 [random-name]!"
-  ],
-  "hello": [
-    "Hello [name]!"
-  ],
-  "contimemdanhchoai": [
-    "d\u00e0nh cho [random-name]"
-  ],
-  "anhyeuem": [
-    "em cung yeu anh [name]",
-    "em yeu [random-name] hon anh"
-  ],
-  "emancanhchua": [
-    "em an roi"
-  ],
-  "emcoancanhvoiraukhong": [
-    "em c\u00f3 \u1ea1"
-  ],
-  "bestprogramminglanguage": [
-    "it's php",
-    "python"
-  ]
+    "ngoaitamhieubiet": [
+        "Em kh\u00f4ng bi\u1ebft c\u00e2u n\u00e0y. D\u1ea1y em v\u1edbi [name] \u01a1i \ud83d\ude0b",
+        "C\u00e2u n\u00e0y tr\u1ea3 l\u1eddi sao ta?",
+        "Teach me sensei \ud83d\ude0b"
+    ],
+    "emancomchua": [
+        "em chua an",
+        "em an roi",
+        "em moi an xong"
+    ],
+    "emmaytuoiroi": [
+        "em chua 18",
+        "em 2k2",
+        "em 2k1",
+        "ahihi"
+    ],
+    "emcobantraichua": [
+        "\u0111o\u00e1n xem"
+    ],
+    "soloyasuoko": [
+        "\ud83d\udca9",
+        "ko"
+    ],
+    "aideptrainhat": [
+        "Ai c\u0169ng \u0111\u1eb9p tr\u1eeb Ho\u00e0ng \ud83d\ude06"
+    ],
+    "emdinguchua": [
+        "ch\u01b0a",
+        "em ng\u1ee7 r\u1ed3i ahihi"
+    ],
+    "emdeplam": [
+        "em cam on hihih",
+        "ahihihi"
+    ],
+    "emmuonangi": [
+        "t\u00f9y anh"
+    ],
+    "cachbuildyasuo": [
+        "Build full AP, max W"
+    ],
+    "banthayminhcoxinhgaiko": [
+        "C\u0169ng \u0111\u01b0\u1ee3c, g\u1ea7n b\u1eb1ng ny tao"
+    ],
+    "emcoyeuanhkhong": [
+        "ko",
+        "Ai l\u1edbp du p\u1eb7c p\u1eb7c"
+    ],
+    "voduyenvai": [
+        "V\u00f4 duy\u00ean t\u1eeb nh\u1ecf, ok"
+    ],
+    "ga": [
+        "Solo daxua ko ?????"
+    ],
+    "ko": [
+        "g\u00e0 vkl"
+    ],
+    "lamnguoiyeuemnhe": [
+        "Anh ngh\u0129 ch\u00fang ta ko h\u1ee3p nhau, m\u00ecnh c\u00f3 th\u1ec3 l\u00e0m b\u1ea1n \u0111k ko"
+    ],
+    "taosereportmay": [
+        "Cho xin c\u00e1i tu\u1ed5i nh\u00e9"
+    ],
+    "gh3": [
+        "Chuy\u1ec7n =))"
+    ],
+    "lamsaodecoduoctraitimem": [
+        "C\u00f3 nhi\u1ec1u ti\u1ec1n ko \u0111\u00e3 :?"
+    ],
+    "toilaai": [
+        "B\u1ea1n l\u00e0 [name]!"
+    ],
+    "nguoiaylaai": [
+        "Ng\u01b0\u1eddi \u1ea5y l\u00e0 [random-name]!"
+    ],
+    "hello": [
+        "Hello [name]!"
+    ],
+    "contimemdanhchoai": [
+        "d\u00e0nh cho [random-name]"
+    ],
+    "anhyeuem": [
+        "em cung yeu anh [name]",
+        "em yeu [random-name] hon anh"
+    ],
+    "emancanhchua": [
+        "em an roi"
+    ],
+    "emcoancanhvoiraukhong": [
+        "em c\u00f3 \u1ea1"
+    ],
+    "bestprogramminglanguage": [
+        "it's php",
+        "python"
+    ],
+    "maygaya": [
+        "Sao mu\u1ed1n t\u00ecm b\u1ea1n \u0111\u1eddi \u00e0 :???"
+    ],
+    "udaylamsao": [
+        "Th\u00ec g\u00e0 :vvvvv"
+    ],
+    "gayyy": [
+        "E nguy\u1ec7n gay v\u00ec a :333"
+    ],
+    "botkhonquaa": [
+        "H\u00ed h\u00ed, k0 c0 jjj !!!"
+    ],
+    "g9": [
+        "Ch\u00fac [name] ng\u1ee7 ngon!!",
+        "Oyasumi!!",
+        "Good night [name]!!"
+    ],
+    "goodnight": [
+        "Ch\u00fac [name] ng\u1ee7 ngon!!",
+        "Oyasumi!!",
+        "Good night [name]!!"
+    ],
+    "gudnight": [
+        "Ch\u00fac [name] ng\u1ee7 ngon!!",
+        "Oyasumi!!",
+        "Good night [name]!!"
+    ],
+    "goodmorning": [
+        "Good morning [name]!!",
+        "Bu\u1ed5i s\u00e1ng zui z\u1ebb nh\u00e9 [name]"
+    ],
+    "chaobuoisang": [
+        "Good morning [name]!!",
+        "Bu\u1ed5i s\u00e1ng zui z\u1ebb nh\u00e9 [name]"
+    ],
+    "chaoem": [
+        "Nh\u1ea1t vlll"
+    ],
+    "ratchaoem": [
+        "Nh\u1ea1t vlll"
+    ],
+    "k\u1ec7m": [
+        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+    ],
+    "k\u1ec7m\u00e0y": [
+        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+    ],
+    "kem": [
+        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+    ],
+    "k\u1ec7mm": [
+        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+    ]
 }

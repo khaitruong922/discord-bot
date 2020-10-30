@@ -60,25 +60,30 @@ def format_question(question):
     return ''.join(c for c in question if c.isalnum()).lower()
 
 
+def format_answer(answer):
+    return answer.strip()
+
+
 @bot.command(brief='Train bot.')
 async def train(ctx: commands.Context, *args):
-    question, answer = ' '.join(args).split("|")
-    question_key = format_question(question)
-
-    answer = answer.strip()
+    questions_content, answers_content = ' '.join(args).split("|")
+    questions = list(map(format_question, questions_content.split('&')))
+    answers = list(map(format_answer, answers_content.split('&')))
     with open(MODEL_FILENAME) as file:
         data = json.load(file)
-        answers = data.get(question_key, [])
-        if answer not in answers:
-            answers.append(answer)
-        data[question_key] = answers
-        with open(MODEL_FILENAME, 'w') as file:
+        for question in questions:
+            file_answers = data.get(question, [])
+            for answer in answers:
+                if answer not in file_answers:
+                    file_answers.append(answer)
+            data[question] = file_answers
+        with open(MODEL_FILENAME, 'w') as w_file:
             json_text = json.dumps(data, indent=4)
-            file.write(json_text)
-    await ctx.send(f':thumbsup: ')
+            w_file.write(json_text)
+    await ctx.send(f':thumbsup:')
 
 
-@bot.command(aliases=['ask'], brief='Ask bot.')
+@bot.command(aliases=['ask', 'c'], brief='Ask bot.')
 async def chat(ctx: commands.Context, *args):
     question = ''.join(args)
     question_key = format_question(question)
@@ -86,8 +91,9 @@ async def chat(ctx: commands.Context, *args):
         data = json.load(file)
         answers = data.get(question_key, [])
         if not answers:
-            await ctx.send('Em ko biet')
-            return
+            answers = data.get('ngoaitamhieubiet', [])
+            if not answers:
+                answers = ["Em không biết câu này. Dạy em với [name] ơi :yum:"]
         answer = rd.choice(answers)
         answer = parse_answer(answer, ctx)
         await ctx.send(answer)
