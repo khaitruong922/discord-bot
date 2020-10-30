@@ -10,10 +10,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-MODEL_FILENAME = 'model.json'
+MODEL_FILENAME = 'chat.json'
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='.', case_insensitive=True, intents=intents)
-
 REPO_URL = 'https://github.com/khaitruong922/discord-bot'
 TIME_FORMAT = '%d/%m/%Y %H:%M:%S'
 board = Board()
@@ -58,12 +57,7 @@ async def hello(ctx: commands.Context):
 
 
 def format_question(question):
-    question = ''.join(question.split()).lower()
-    new_question = ""
-    for c in question:
-        if c.isalnum():
-            new_question += c
-    return new_question
+    return ''.join(c for c in question if c.isalnum()).lower()
 
 
 @bot.command(brief='Train bot.')
@@ -94,7 +88,21 @@ async def chat(ctx: commands.Context, *args):
         if not answers:
             await ctx.send('Em ko biet')
             return
-        await ctx.send(rd.choice(answers))
+        answer = rd.choice(answers)
+        answer = parse_answer(answer, ctx)
+        await ctx.send(answer)
+
+
+def parse_answer(answer, ctx: commands.Context):
+    if "[" not in answer:
+        return answer
+    markdown_dict = {
+        "[name]": ctx.author.name,
+        "[random-name]": rd.choice(ctx.guild.members).name
+    }
+    for markdown, str_to_replace in markdown_dict.items():
+        answer = answer.replace(markdown, str_to_replace)
+    return answer
 
 
 @bot.command(brief='Make bot say goodbye :D')
