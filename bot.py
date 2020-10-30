@@ -66,7 +66,7 @@ def format_question(question):
     return new_question
 
 
-@bot.command(brief='Train bot')
+@bot.command(brief='Train bot.')
 async def train(ctx: commands.Context, *args):
     question, answer = ' '.join(args).split("|")
     question_key = format_question(question)
@@ -84,8 +84,8 @@ async def train(ctx: commands.Context, *args):
     await ctx.send(f':thumbsup: ')
 
 
-@bot.command(brief='Ask bot')
-async def ask(ctx: commands.Context, *args):
+@bot.command(aliases=['ask'], brief='Ask bot.')
+async def chat(ctx: commands.Context, *args):
     question = ''.join(args)
     question_key = format_question(question)
     with open(MODEL_FILENAME) as file:
