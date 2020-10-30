@@ -55,6 +55,11 @@ async def hello(ctx: commands.Context):
     await ctx.send(f'Hello {ctx.author.name}!')
 
 
+@bot.command(brief='Make bot say goodbye :D')
+async def bye(ctx: commands.Context):
+    await ctx.send(f'Goodbye {ctx.author.name}!')
+
+
 @bot.command(brief='Show bot info.')
 async def info(ctx: commands.Context):
     await ctx.send(
@@ -199,7 +204,7 @@ async def random_user(ctx: commands.Context):
 async def github(ctx: commands.Context, username):
     user = fetch_github_user(username)
     if not user:
-        await ctx.send(f'User {username} not found.')
+        await ctx.send(f'User {username} is not found.')
         return
     title = f'{username}'
     url = f'https://github.com/{username}'
@@ -222,7 +227,7 @@ async def github(ctx: commands.Context, username):
 async def repo(ctx: commands.Context, username, repo_name):
     repo = fetch_github_repo(username, repo_name)
     if not repo:
-        await ctx.send(f'Repository {username}/{repo_name} not found.')
+        await ctx.send(f'Repository {username}/{repo_name} is not found.')
         return
     url = f'https://github.com/{username}/{repo_name}'
     title = repo.get('full_name')
