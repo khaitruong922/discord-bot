@@ -1,6 +1,4 @@
 /venv
 /.idea
+__pycache__/
 .env
-/
-pyvenv.cfg
-/__pycache__
