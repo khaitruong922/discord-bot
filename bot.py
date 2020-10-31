@@ -135,7 +135,7 @@ async def here(ctx: commands.Context):
     await ctx.send(f'Server: {ctx.guild}\nChannel: {ctx.channel}')
 
 
-@bot.command(brief='Clear a number of messages in a channel')
+@bot.command(brief='Clear a number of messages in a channel.')
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx: commands.Context, amount=1):
     await ctx.channel.purge(limit=amount)
@@ -188,7 +188,7 @@ async def lore(ctx: commands.Context, *args):
     await ctx.send(content)
 
 
-@bot.command(brief='Show an ability description of a LoL champion', aliases=['ability'])
+@bot.command(brief='Show an ability of a LoL champion.', aliases=['ability'])
 async def skill(ctx: commands.Context, *args):
     name = get_champion_name(args[:-1])
     key = args[-1].upper()
