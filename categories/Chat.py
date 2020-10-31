@@ -5,7 +5,7 @@ from discord.ext import commands
 
 class Chat(commands.Cog):
     def __init__(self):
-        self.MODEL_FILENAME = '../chat.json'
+        self.MODEL_FILENAME = '../data/chat.json'
 
     @commands.command(brief='Train bot.')
     async def train(self, ctx: commands.Context, *args):

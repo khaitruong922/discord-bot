@@ -1,5 +1,5 @@
 from discord.ext import commands
-from Board import Board
+from model.Board import Board
 
 
 class TicTacToe(commands.Cog):
