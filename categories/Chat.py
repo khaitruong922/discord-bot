@@ -2,17 +2,17 @@ import random as rd
 import json
 from discord.ext import commands
 
+MODEL_FILENAME = '../data/chat.json'
+
 
 class Chat(commands.Cog):
-    def __init__(self):
-        self.MODEL_FILENAME = '../data/chat.json'
 
     @commands.command(brief='Train bot.')
     async def train(self, ctx: commands.Context, *args):
         questions_content, answers_content = ' '.join(args).split("|")
         questions = list(map(format_question, questions_content.split('&')))
         answers = list(map(format_answer, answers_content.split('&')))
-        with open(self.MODEL_FILENAME) as file:
+        with open(MODEL_FILENAME) as file:
             data = json.load(file)
             for question in questions:
                 file_answers = data.get(question, [])
@@ -20,7 +20,7 @@ class Chat(commands.Cog):
                     if answer not in file_answers:
                         file_answers.append(answer)
                 data[question] = file_answers
-            with open(self.MODEL_FILENAME, 'w') as w_file:
+            with open(MODEL_FILENAME, 'w') as w_file:
                 json_text = json.dumps(data, indent=4)
                 w_file.write(json_text)
         await ctx.send(f':thumbsup:')
@@ -29,7 +29,7 @@ class Chat(commands.Cog):
     async def chat(self, ctx: commands.Context, *args):
         question = ''.join(args)
         question_key = format_question(question)
-        with open(self.MODEL_FILENAME) as file:
+        with open(MODEL_FILENAME) as file:
             data = json.load(file)
             answers = data.get(question_key,
                                data.get('ngoaitamhieubiet', ["Em không biết câu này. Dạy em với [name] ơi :yum:"]))
