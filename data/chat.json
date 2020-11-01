@@ -1,167 +1,331 @@
 {
-    "ngoaitamhieubiet": [
-        "Em kh\u00f4ng bi\u1ebft c\u00e2u n\u00e0y. D\u1ea1y em v\u1edbi [name] \u01a1i \ud83d\ude0b",
-        "C\u00e2u n\u00e0y tr\u1ea3 l\u1eddi sao ta?",
-        "Teach me sensei \ud83d\ude0b"
-    ],
-    "emancomchua": [
-        "em chua an",
-        "em an roi",
-        "em moi an xong"
-    ],
-    "emmaytuoiroi": [
-        "em chua 18",
-        "em 2k2",
-        "em 2k1",
-        "ahihi",
-        "b\u1eb1ng tu\u1ed5i m \u0111\u00f3"
-    ],
-    "emcobantraichua": [
-        "\u0111o\u00e1n xem"
-    ],
-    "soloyasuoko": [
-        "\ud83d\udca9",
-        "ko"
-    ],
-    "aideptrainhat": [
-        "Ai c\u0169ng \u0111\u1eb9p tr\u1eeb Ho\u00e0ng \ud83d\ude06"
-    ],
-    "emdinguchua": [
-        "ch\u01b0a",
-        "em ng\u1ee7 r\u1ed3i ahihi"
-    ],
-    "emdeplam": [
-        "em cam on hihih",
-        "ahihihi"
-    ],
-    "emmuonangi": [
-        "t\u00f9y anh",
-        "\u0103n g\u00ec c\u0169ng \u0111c"
-    ],
-    "cachbuildyasuo": [
-        "Build full AP, max W"
-    ],
-    "banthayminhcoxinhgaiko": [
-        "C\u0169ng \u0111\u01b0\u1ee3c, g\u1ea7n b\u1eb1ng ny tao"
-    ],
-    "emcoyeuanhkhong": [
-        "ko",
-        "Ai l\u1edbp du p\u1eb7c p\u1eb7c"
-    ],
-    "voduyenvai": [
-        "V\u00f4 duy\u00ean t\u1eeb nh\u1ecf, ok"
-    ],
-    "ga": [
-        "Solo daxua ko ?????"
-    ],
-    "ko": [
-        "g\u00e0 vkl"
-    ],
-    "lamnguoiyeuemnhe": [
-        "Anh ngh\u0129 ch\u00fang ta ko h\u1ee3p nhau, m\u00ecnh c\u00f3 th\u1ec3 l\u00e0m b\u1ea1n \u0111k ko"
-    ],
-    "taosereportmay": [
-        "Cho xin c\u00e1i tu\u1ed5i nh\u00e9"
-    ],
-    "gh3": [
-        "Chuy\u1ec7n =))"
-    ],
-    "lamsaodecoduoctraitimem": [
-        "C\u00f3 nhi\u1ec1u ti\u1ec1n ko \u0111\u00e3 :?"
-    ],
-    "toilaai": [
-        "B\u1ea1n l\u00e0 [name]!"
-    ],
-    "nguoiaylaai": [
-        "Ng\u01b0\u1eddi \u1ea5y l\u00e0 [random-name]!"
-    ],
-    "hello": [
-        "Hello [name]!"
-    ],
-    "contimemdanhchoai": [
-        "d\u00e0nh cho [random-name]"
-    ],
-    "anhyeuem": [
-        "em cung yeu anh [name]",
-        "em yeu [random-name] hon anh"
-    ],
-    "emancanhchua": [
-        "em an roi"
-    ],
-    "emcoancanhvoiraukhong": [
-        "em c\u00f3 \u1ea1"
-    ],
-    "bestprogramminglanguage": [
-        "it's php",
-        "python"
-    ],
-    "maygaya": [
-        "Sao mu\u1ed1n t\u00ecm b\u1ea1n \u0111\u1eddi \u00e0 :???"
-    ],
-    "udaylamsao": [
-        "Th\u00ec g\u00e0 :vvvvv"
-    ],
-    "gayyy": [
-        "E nguy\u1ec7n gay v\u00ec a :333"
-    ],
-    "botkhonquaa": [
-        "H\u00ed h\u00ed, k0 c0 jjj !!!"
-    ],
-    "g9": [
-        "Ch\u00fac [name] ng\u1ee7 ngon!!",
-        "Oyasumi!!",
-        "Good night [name]!!"
-    ],
-    "goodnight": [
-        "Ch\u00fac [name] ng\u1ee7 ngon!!",
-        "Oyasumi!!",
-        "Good night [name]!!"
-    ],
-    "gudnight": [
-        "Ch\u00fac [name] ng\u1ee7 ngon!!",
-        "Oyasumi!!",
-        "Good night [name]!!"
-    ],
-    "goodmorning": [
-        "Good morning [name]!!",
-        "Bu\u1ed5i s\u00e1ng zui z\u1ebb nh\u00e9 [name]"
-    ],
-    "chaobuoisang": [
-        "Good morning [name]!!",
-        "Bu\u1ed5i s\u00e1ng zui z\u1ebb nh\u00e9 [name]"
-    ],
-    "chaoem": [
-        "Nh\u1ea1t vlll"
-    ],
-    "ratchaoem": [
-        "Nh\u1ea1t vlll"
-    ],
-    "k\u1ec7m": [
-        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
-    ],
-    "k\u1ec7m\u00e0y": [
-        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
-    ],
-    "kem": [
-        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
-    ],
-    "k\u1ec7mm": [
-        "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
-    ],
-    "emmu\u1ed1n\u0103ng\u00ec": [
-        "\u0103n g\u00ec c\u0169ng \u0111\u01b0\u1ee3c \ud83d\ude42"
-    ],
-    "ch\u00e0ot\u0111i": [
-        "D\u1ea1 e ch\u00e0o ch\u1ecb \u0111\u1ea1i"
-    ],
-    "ch\u00e0otao\u0111i": [
-        "D\u1ea1 e ch\u00e0o ch\u1ecb \u0111\u1ea1i"
-    ],
-    "hi": [
-        "?",
-        "Hi [name]!!"
-    ],
-    "helloworld": [
-        "H\u1ecdc l\u1eadp tr\u00ecnh \u0111\u1ec3 cua ch\u1ecb \u00e0?"
-    ]
+  "ngoaitamhieubiet": [
+    "Em kh\u00f4ng bi\u1ebft c\u00e2u n\u00e0y. D\u1ea1y em v\u1edbi [name] \u01a1i \ud83d\ude0b",
+    "C\u00e2u n\u00e0y tr\u1ea3 l\u1eddi sao ta?",
+    "Teach me sensei \ud83d\ude0b",
+    "Ai bi\u1ebft?"
+  ],
+  "emancomchua": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong"
+  ],
+  "emmaytuoiroi": [
+    "em chua 18",
+    "em 2k2",
+    "em 2k1",
+    "ahihi",
+    "b\u1eb1ng tu\u1ed5i m \u0111\u00f3"
+  ],
+  "emcobantraichua": [
+    "\u0111o\u00e1n xem"
+  ],
+  "soloyasuoko": [
+    "\ud83d\udca9",
+    "ko"
+  ],
+  "aideptrainhat": [
+    "Ai c\u0169ng \u0111\u1eb9p tr\u1eeb Ho\u00e0ng \ud83d\ude06"
+  ],
+  "emdinguchua": [
+    "ch\u01b0a",
+    "em ng\u1ee7 r\u1ed3i ahihi"
+  ],
+  "emdeplam": [
+    "em cam on hihih",
+    "ahihihi"
+  ],
+  "emmuonangi": [
+    "t\u00f9y anh",
+    "\u0103n g\u00ec c\u0169ng \u0111c"
+  ],
+  "cachbuildyasuo": [
+    "Build full AP, max W"
+  ],
+  "banthayminhcoxinhgaiko": [
+    "C\u0169ng \u0111\u01b0\u1ee3c, g\u1ea7n b\u1eb1ng ny tao"
+  ],
+  "emcoyeuanhkhong": [
+    "ko",
+    "Ai l\u1edbp du p\u1eb7c p\u1eb7c"
+  ],
+  "voduyenvai": [
+    "V\u00f4 duy\u00ean t\u1eeb nh\u1ecf, ok"
+  ],
+  "ga": [
+    "Solo daxua ko ?????"
+  ],
+  "ko": [
+    "g\u00e0 vkl"
+  ],
+  "lamnguoiyeuemnhe": [
+    "Anh ngh\u0129 ch\u00fang ta ko h\u1ee3p nhau, m\u00ecnh c\u00f3 th\u1ec3 l\u00e0m b\u1ea1n \u0111k ko"
+  ],
+  "taosereportmay": [
+    "Cho xin c\u00e1i tu\u1ed5i nh\u00e9"
+  ],
+  "gh3": [
+    "Chuy\u1ec7n =))"
+  ],
+  "lamsaodecoduoctraitimem": [
+    "C\u00f3 nhi\u1ec1u ti\u1ec1n ko \u0111\u00e3 :?"
+  ],
+  "toilaai": [
+    "B\u1ea1n l\u00e0 [name]!"
+  ],
+  "nguoiaylaai": [
+    "Ng\u01b0\u1eddi \u1ea5y l\u00e0 [random-name]!",
+    "Kh\u00f4ng anh ch\u1ee9 ai"
+  ],
+  "hello": [
+    "Hello [name]!",
+    "ko th\u00edch ch\u00e0o [name], ok",
+    "hello"
+  ],
+  "contimemdanhchoai": [
+    "d\u00e0nh cho [random-name]"
+  ],
+  "anhyeuem": [
+    "em cung yeu anh [name]",
+    "em yeu [random-name] hon anh"
+  ],
+  "emancanhchua": [
+    "em an roi"
+  ],
+  "emcoancanhvoiraukhong": [
+    "em c\u00f3 \u1ea1"
+  ],
+  "bestprogramminglanguage": [
+    "it's php",
+    "python"
+  ],
+  "maygaya": [
+    "Sao mu\u1ed1n t\u00ecm b\u1ea1n \u0111\u1eddi \u00e0 :???"
+  ],
+  "udaylamsao": [
+    "Th\u00ec g\u00e0 :vvvvv"
+  ],
+  "gay": [
+    "E nguy\u1ec7n gay v\u00ec a :333"
+  ],
+  "botkhonquaa": [
+    "H\u00ed h\u00ed, k0 c0 jjj !!!"
+  ],
+  "g9": [
+    "Ch\u00fac [name] ng\u1ee7 ngon!!",
+    "Oyasumi!!",
+    "Good night [name]!!"
+  ],
+  "goodnight": [
+    "Ch\u00fac [name] ng\u1ee7 ngon!!",
+    "Oyasumi!!",
+    "Good night [name]!!"
+  ],
+  "gudnight": [
+    "Ch\u00fac [name] ng\u1ee7 ngon!!",
+    "Oyasumi!!",
+    "Good night [name]!!"
+  ],
+  "goodmorning": [
+    "Good morning [name]!!",
+    "Bu\u1ed5i s\u00e1ng zui z\u1ebb nh\u00e9 [name]"
+  ],
+  "chaobuoisang": [
+    "Good morning [name]!!",
+    "Bu\u1ed5i s\u00e1ng zui z\u1ebb nh\u00e9 [name]"
+  ],
+  "chaoem": [
+    "Nh\u1ea1t vlll"
+  ],
+  "ratchaoem": [
+    "Nh\u1ea1t vlll"
+  ],
+  "k\u1ec7m": [
+    "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+  ],
+  "k\u1ec7m\u00e0y": [
+    "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+  ],
+  "kem": [
+    "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+  ],
+  "k\u1ec7mm": [
+    "ko th\u00edch k\u1ec7 th\u00ec n\u00e0m thao"
+  ],
+  "emmu\u1ed1n\u0103ng\u00ec": [
+    "\u0103n g\u00ec c\u0169ng \u0111\u01b0\u1ee3c \ud83d\ude42"
+  ],
+  "ch\u00e0ot\u0111i": [
+    "D\u1ea1 e ch\u00e0o ch\u1ecb \u0111\u1ea1i"
+  ],
+  "ch\u00e0otao\u0111i": [
+    "D\u1ea1 e ch\u00e0o ch\u1ecb \u0111\u1ea1i"
+  ],
+  "hi": [
+    "?",
+    "Hi [name]!!"
+  ],
+  "helloworld": [
+    "H\u1ecdc l\u1eadp tr\u00ecnh \u0111\u1ec3 cua ch\u1ecb \u00e0?"
+  ],
+  "ch\u1ecb\u00e2n": [
+    "Best designer c\u1ee7a club :3"
+  ],
+  "ch\u1ecb\u00e2nl\u00e0ai": [
+    "Best designer c\u1ee7a club :3"
+  ],
+  "taisaotuie": [
+    "t\u1ea1i v\u00ec b\u1ea1n x\u1ee9ng \u0111\u00e1ng"
+  ],
+  "occho": [
+    "m oc cho hon",
+    "kh\u00f4n h\u01a1n m"
+  ],
+  "mmuongi": [
+    "mu\u1ed1n l\u00e0m ng\u01b0\u1eddi y\u00eau em",
+    "mu\u1ed1n l\u00e0m ng\u01b0\u1eddi y\u00eau anh"
+  ],
+  "traitimemthuocveai": [
+    "Ai c\u0169ng y\u00eau tr\u1eeb [name]"
+  ],
+  "emcoxemanimekhong": [
+    "Haiiii",
+    "Wibu \u00e0?"
+  ],
+  "ail\u00e0pre": [
+    "c \u00c2n"
+  ],
+  "bot\u0111\u1eb9ptraith\u1ebf": [
+    "\u0110\u00e2u ai bi\u1ebft g\u00ec <:1010:771406495463243807>"
+  ],
+  "gi\u1ecfi": [
+    "c\u00f4ng c \u00c2n c\u1ea3 m\u00e0aa"
+  ],
+  "hoclaptrinhdelamgi": [
+    "t\u00ecm b\u1ea1n \u0111\u1eddi"
+  ],
+  "ch\u1ecb\u00e2nsinhn\u0103mm\u1ea5y": [
+    "2000",
+    "2k2",
+    "1997",
+    "1993"
+  ],
+  "m\u00e0yc\u00f3v\u1ee3ch\u01b0a": [
+    "\u0110\u1ebb 2 l\u1ee9a r\u1ed3i"
+  ],
+  "emc\u00f3y\u00eauanhko": [
+    "ko y\u00eau gay nh\u00e9 !!!"
+  ],
+  "emuondidau": [
+    "v\u00e0o tim c\u1ee7a em xem c\u00f3 g\u00ec n\u00e0o"
+  ],
+  "h\u00f4mnayth\u1ee9m\u1ea5y": [
+    "kh\u00f4ng bi\u1ebft nh\u01b0ng m l\u00e0 th\u1ee9 3"
+  ],
+  "nhi\u1ec1uti\u1ec1n\u0111\u1ec3l\u00e0mg\u00ec": [
+    "cho em n\u00e8"
+  ],
+  "concocuongnuoc": [
+    "<:concocuongnuoc:771732991693160518>"
+  ],
+  "emyeuanh": [
+    "anh c\u0169ng y\u00eau anh"
+  ],
+  "labodau": [
+    "1.4.16"
+  ],
+  "aitaoramay": [
+    "<@!294898535034388481>"
+  ],
+  "ait\u1ea1oram\u00e0y": [
+    "<@!294898535034388481>"
+  ],
+  "muonhocmatlab": [
+    "li\u00ean h\u1ec7 anh <@!572690237659283456>"
+  ],
+  "mu\u1ed1nh\u1ecdcmatlab": [
+    "li\u00ean h\u1ec7 anh <@!572690237659283456>"
+  ],
+  "th\u1ea5yth\u00e0ih\u01b0\u1edbcko": [
+    "<:peepohappy:771409402992263199>"
+  ],
+  "th\u1ea5yth\u00e0ih\u01b0\u1edbck": [
+    "<:peepohappy:771409402992263199>"
+  ],
+  "thaythaihuock": [
+    "<:peepohappy:771409402992263199>"
+  ],
+  "ch\u1ecb\u00e2nk\u00eca": [
+    "d\u1ea1 con ch\u00e0o c\u00f4 \u00c2n <:luv:771406494930436117>"
+  ],
+  "em\u0103nc\u01a1mch\u01b0a": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong",
+    "<:peepohappy:771409402992263199>"
+  ],
+  "eancomchua": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong"
+  ],
+  "e\u0103nc\u01a1mch\u01b0a": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong"
+  ],
+  "em\u0103ns\u00e1ngch\u01b0a": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong",
+    "<:peepohappy:771409402992263199>"
+  ],
+  "em\u0103ntr\u01b0ach\u01b0a": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong",
+    "<:peepohappy:771409402992263199>"
+  ],
+  "em\u0103nt\u1ed1ich\u01b0a": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong",
+    "<:peepohappy:771409402992263199>"
+  ],
+  "ch\u1ecb\u00e2nsinhn\u0103mbaonhi\u00eau": [
+    "2000",
+    "2k2",
+    "1997",
+    "1993"
+  ],
+  "aih\u1ecdcd\u1ed1t": [
+    "T\u00edch ph\u00e2n c\u1ee7a cos(x^2)*sin(y^2) + e^x l\u00e0 g\u00ec ????"
+  ],
+  "h\u1ecdcreactjshook\u1edf\u0111\u00e2ut\u1ed1tnh\u1ea5t": [
+    "T\u00f4i khuy\u00ean b\u1ea1n n\u00ean l\u00ean website sau \u0111\u00e2y https://reactjs.org/docs/hooks-intro.html \u0111\u1ec3 h\u1ecdc"
+  ],
+  "reactjshook": [
+    "T\u00f4i khuy\u00ean b\u1ea1n n\u00ean l\u00ean website sau \u0111\u00e2y https://reactjs.org/docs/hooks-intro.html \u0111\u1ec3 h\u1ecdc"
+  ],
+  "hocreactjshook": [
+    "T\u00f4i khuy\u00ean b\u1ea1n n\u00ean l\u00ean website sau \u0111\u00e2y https://reactjs.org/docs/hooks-intro.html \u0111\u1ec3 h\u1ecdc"
+  ],
+  "h\u1ecdcreactjshook": [
+    "T\u00f4i khuy\u00ean b\u1ea1n n\u00ean l\u00ean website sau \u0111\u00e2y https://reactjs.org/docs/hooks-intro.html \u0111\u1ec3 h\u1ecdc"
+  ],
+  "mu\u1ed1nh\u1ecdcbackendwebsite": [
+    "li\u00ean h\u1ec7 anh <@!707620465094557710>"
+  ],
+  "javascriptframeworkn\u00e0ol\u00e0t\u1ed1tnh\u1ea5t": [
+    "b\u1ea1n c\u00f3 th\u1ec3 tham kh\u1ea3o th\u00eam v\u1edbi \u0111\u01b0\u1eddng link sau: https://medium.com/javascript-scene/top-javascript-frameworks-and-topics-to-learn-in-2020-and-the-new-decade-ced6e9d812f9"
+  ],
+  "bestjavascriptframework": [
+    "b\u1ea1n c\u00f3 th\u1ec3 tham kh\u1ea3o th\u00eam v\u1edbi \u0111\u01b0\u1eddng link sau: https://medium.com/javascript-scene/top-javascript-frameworks-and-topics-to-learn-in-2020-and-the-new-decade-ced6e9d812f9"
+  ],
+  "javascriptframework": [
+    "b\u1ea1n c\u00f3 th\u1ec3 tham kh\u1ea3o th\u00eam v\u1edbi \u0111\u01b0\u1eddng link sau: https://medium.com/javascript-scene/top-javascript-frameworks-and-topics-to-learn-in-2020-and-the-new-decade-ced6e9d812f9"
+  ],
+  "jsframework": [
+    "b\u1ea1n c\u00f3 th\u1ec3 tham kh\u1ea3o th\u00eam v\u1edbi \u0111\u01b0\u1eddng link sau: https://medium.com/javascript-scene/top-javascript-frameworks-and-topics-to-learn-in-2020-and-the-new-decade-ced6e9d812f9"
+  ]
 }
