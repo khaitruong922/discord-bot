@@ -4,7 +4,8 @@ import os
 from discord.ext import commands
 
 CHAT_FILE = 'data/chat.json'
-INSERT_FAILED = 'Sai cú pháp, bot không hiểu được.'
+NO_QUESTIONS = 'Câu hỏi đâu?'
+NO_ANSWERS = 'Câu trả lời đâu?'
 INSERT_SUCCESSFULLY = ':thumbsup:'
 
 
@@ -63,9 +64,9 @@ def insert(questions, answers):
     questions = [q for q in questions if q != '']
     answers = [a for a in answers if a != '']
     if not questions:
-        return INSERT_FAILED
+        return NO_QUESTIONS
     if not answers:
-        return INSERT_FAILED
+        return NO_ANSWERS
     with open(CHAT_FILE) as file:
         data = json.load(file)
         iq = 0

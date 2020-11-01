@@ -10,7 +10,8 @@ class Board:
     TIE = 'Tie.'
 
     def __init__(self):
-        self.reset_board()
+        self.board = [self.BLANK] * 9
+        self.current_player = self.X
 
     def get_board_data(self):
         return '\n'.join((','.join(self.board[0:3]), ','.join(self.board[3:6]), ','.join(self.board[6:9])))
@@ -50,8 +51,8 @@ class Board:
 
     def get_win_message(self):
         winner = self.get_winner()
-        if winner == None and not self.is_full(): return ""
-        if winner == None: return self.TIE
+        if winner is None and not self.is_full(): return ""
+        if winner is None: return self.TIE
         return f'{winner} is the winner!'
 
     def get_winner(self):
