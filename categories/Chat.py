@@ -83,21 +83,18 @@ def insert(questions, answers):
 
 
 def get_chat_bot_data():
-    chat_bot_data = {}
+    bot_data = {}
     with open(CHAT_FILE) as file:
         data = json.load(file)
-        iq = 0
         items = data.items()
         all_answers = []
         for question, answers in items:
-            iq += len(answers)
-            for answer in answers:
-                all_answers.append(answer)
+            all_answers += answers
         unique_answer_count = len(set(all_answers))
-        chat_bot_data['iq'] = iq
-        chat_bot_data['question_count'] = len(items)
-        chat_bot_data['unique_answer_count'] = unique_answer_count
-        return chat_bot_data
+        bot_data['iq'] = len(all_answers)
+        bot_data['question_count'] = len(items)
+        bot_data['unique_answer_count'] = unique_answer_count
+        return bot_data
 
 
 def get_answers(question):
