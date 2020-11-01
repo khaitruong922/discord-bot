@@ -2,7 +2,7 @@ import random as rd
 import json
 from discord.ext import commands
 
-MODEL_FILENAME = '../data/chat.json'
+MODEL_FILENAME = 'data/chat.json'
 
 
 class Chat(commands.Cog):
