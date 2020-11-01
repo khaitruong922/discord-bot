@@ -1,8 +1,9 @@
 import random as rd
 import json
+import os
 from discord.ext import commands
 
-CHAT_DATA_FILENAME = 'data/chat.json'
+CHAT_FILE = 'data/chat.json'
 INSERT_FAILED = 'Sai cú pháp, bot không hiểu được.'
 INSERT_SUCCESSFULLY = ':thumbsup:'
 
@@ -53,6 +54,7 @@ class Chat(commands.Cog):
         await ctx.send(
             f'Chat Bot Profile:\n'
             f'- {iq} IQ\n'
+            f'- Size: {os.stat(CHAT_FILE).st_size} B\n'
             f'- Trả lời được {question_count} câu hỏi.\n'
             f'- Học được {unique_answer_count} câu trả lời khác nhau.')
 
@@ -64,7 +66,7 @@ def insert(questions, answers):
         return INSERT_FAILED
     if not answers:
         return INSERT_FAILED
-    with open(CHAT_DATA_FILENAME) as file:
+    with open(CHAT_FILE) as file:
         data = json.load(file)
         iq = 0
         for question in questions:
@@ -73,7 +75,7 @@ def insert(questions, answers):
             iq += len(new_answers)
             file_answers += new_answers
             data[question] = file_answers
-        with open(CHAT_DATA_FILENAME, 'w') as w_file:
+        with open(CHAT_FILE, 'w') as w_file:
             json_text = json.dumps(data, indent=2)
             w_file.write(json_text)
             return f'Chỉ số IQ tăng thêm {iq}'
@@ -81,7 +83,7 @@ def insert(questions, answers):
 
 def get_chat_bot_data():
     chat_bot_data = {}
-    with open(CHAT_DATA_FILENAME) as file:
+    with open(CHAT_FILE) as file:
         data = json.load(file)
         iq = 0
         items = data.items()
@@ -99,7 +101,7 @@ def get_chat_bot_data():
 
 def get_answers(question):
     question = format_question(question)
-    with open(CHAT_DATA_FILENAME) as file:
+    with open(CHAT_FILE) as file:
         data = json.load(file)
         answers = data.get(question, [])
         return answers
