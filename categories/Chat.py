@@ -42,16 +42,12 @@ class Chat(commands.Cog):
         answer = parse_answer(answer, ctx)
         await ctx.send(answer)
 
-    @commands.command(brief='Show chat bot IQ.')
-    async def iq(self, ctx: commands.Context):
-        await ctx.send(f'{round(get_iq(), 2)} IQ')
-
     @commands.command(aliases=['chatbotinfo'], brief='Show chat bot data.')
     async def chatbot(self, ctx: commands.Context):
         await ctx.send(
             f'Chat Bot Profile:\n'
-            f'- {int(get_iq())} IQ\n'
-            f'- Size: {get_file_size()} B\n'
+            f'- {round(get_iq(), 2)} IQ\n'
+            f'- Size: {get_file_size_kb()} KB\n'
             f'- Trả lời được {get_question_count()} câu hỏi.\n'
             f'- Học được {get_unique_answer_count()} câu trả lời khác nhau.')
 
@@ -86,8 +82,8 @@ def write_chat_data(data):
         w_file.write(json_text)
 
 
-def get_file_size():
-    return os.stat(CHAT_FILE).st_size
+def get_file_size_kb():
+    return round(os.stat(CHAT_FILE).st_size / 1024, 2)
 
 
 def get_iq():
