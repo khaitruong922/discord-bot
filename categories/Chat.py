@@ -121,22 +121,25 @@ def format_answer(answer):
     return answer.strip()
 
 
-def parse_answer(answer, ctx: commands.Context):
-    if "[" not in answer:
-        return answer
+def get_markdown_dict(ctx: commands.Context):
     now = datetime.now()
-    markdown_dict = {
+    return {
         "[hour]": now.hour,
         "[min]": now.minute,
         "[grade]": rd.choice(['NN', 'PA', 'CR', 'DI', 'HD']),
         "[name]": ctx.author.name,
         "[random-name]": rd.choice(ctx.guild.members).name
     }
-    return translate(markdown_dict, answer)
+
+
+def parse_answer(answer, ctx: commands.Context):
+    return translate(get_markdown_dict(ctx), answer)
 
 
 def translate(d: dict, content: str):
     for key, str_to_replace in d.items():
+        if "[" not in content:
+            break
         content = content.replace(key, str(str_to_replace))
     return content
 
