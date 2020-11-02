@@ -20,6 +20,13 @@ class Task(commands.Cog):
         write_bad_words(bad_words)
         await ctx.send(f'Từ {word} mới vô danh sách đen. Chúc bạn xài từ cẩn thận.')
 
+    @commands.command(brief='Remove restricted word.')
+    async def rmban(self, ctx: commands.Context, word):
+        bad_words = get_bad_words()
+        bad_words.remove(word)
+        write_bad_words(bad_words)
+        await ctx.send(f'Từ {word} đã bị xoá khỏi danh sách đen. Chúc bạn xài từ cẩn thận.')
+
     @ban.error
     async def ban_error(self, ctx: commands.Context, error):
         if isinstance(error, commands.MissingRequiredArgument):
