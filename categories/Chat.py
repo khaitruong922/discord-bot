@@ -46,8 +46,8 @@ class Chat(commands.Cog):
     async def iq(self, ctx: commands.Context):
         await ctx.send(f'{round(get_iq(), 2)} IQ')
 
-    @commands.command(aliases=['chatbot'], brief='Show chat bot data.')
-    async def chat_bot(self, ctx: commands.Context):
+    @commands.command(aliases=['chatbotinfo'], brief='Show chat bot data.')
+    async def chatbot(self, ctx: commands.Context):
         await ctx.send(
             f'Chat Bot Profile:\n'
             f'- {int(get_iq())} IQ\n'
