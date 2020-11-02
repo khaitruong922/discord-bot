@@ -30,11 +30,14 @@ class Event(commands.Cog):
     async def on_message(self, message: discord.Message):
         if message.author.bot:
             return
-        content = message.content
+        content = message.content.lower()
+        channel = message.channel
         bad_words = get_bad_words()
+        name = message.author.name
         bad = any(word in bad_words for word in content.split())
+        if 'bot ngu' in content:
+            await channel.send(f'Dám chửi t à {name}?')
+            return
         if not bad:
             return
-        channel = message.channel
-        name = message.author.name
         await channel.send(f'Không nói bậy nha bạn {name} !!')

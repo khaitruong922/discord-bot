@@ -6,6 +6,7 @@ from discord.ext import commands
 import math
 
 CHAT_FILE = 'data/chat.json'
+
 NO_QUESTIONS = 'Câu hỏi đâu?'
 NO_ANSWERS = 'Câu trả lời đâu?'
 INSERT_SUCCESSFULLY = ':thumbsup:'
@@ -77,9 +78,9 @@ def get_chat_data():
 
 
 def write_chat_data(data):
-    with open(CHAT_FILE, 'w') as w_file:
+    with open(CHAT_FILE, 'w') as file:
         json_text = json.dumps(data, indent=2)
-        w_file.write(json_text)
+        file.write(json_text)
 
 
 def get_file_size_kb():
