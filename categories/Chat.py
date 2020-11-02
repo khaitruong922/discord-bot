@@ -1,6 +1,7 @@
 import random as rd
 import json
 import os
+from _datetime import datetime
 from discord.ext import commands
 import math
 
@@ -111,10 +112,9 @@ def get_unique_answer_count():
 
 def get_answers(question):
     question = format_question(question)
-    with open(CHAT_FILE) as file:
-        data = json.load(file)
-        answers = data.get(question, [])
-        return answers
+    data = get_chat_data()
+    answers = data.get(question, [])
+    return answers
 
 
 def format_answer(answer):
@@ -124,14 +124,21 @@ def format_answer(answer):
 def parse_answer(answer, ctx: commands.Context):
     if "[" not in answer:
         return answer
+    now = datetime.now()
     markdown_dict = {
+        "[hour]": now.hour,
+        "[min]": now.minute,
         "[grade]": rd.choice(['NN', 'PA', 'CR', 'DI', 'HD']),
         "[name]": ctx.author.name,
         "[random-name]": rd.choice(ctx.guild.members).name
     }
-    for markdown, str_to_replace in markdown_dict.items():
-        answer = answer.replace(markdown, str_to_replace)
-    return answer
+    return translate(markdown_dict, answer)
+
+
+def translate(d: dict, content: str):
+    for key, str_to_replace in d.items():
+        content = content.replace(key, str(str_to_replace))
+    return content
 
 
 def format_question(question):
