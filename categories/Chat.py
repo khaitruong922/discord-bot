@@ -137,5 +137,6 @@ def translate(d: dict, content: str):
 
 def format_question(question):
     question = question.strip().lower()
+    question = ''.join(c for c in question if c.isalnum() or c.isspace())
     question = SPACE_SEP.join(question.split())
-    return ''.join(c for c in question if c.isalnum() or c == SPACE_SEP)
+    return question

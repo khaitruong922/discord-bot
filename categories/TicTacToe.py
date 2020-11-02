@@ -1,5 +1,5 @@
 from discord.ext import commands
-from model.Board import Board
+from models.Board import Board
 
 board = Board()
 
