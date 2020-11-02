@@ -49,8 +49,7 @@ class Chat(commands.Cog):
             f'Chat Bot Profile:\n'
             f'- {round(get_iq(), 2)} IQ\n'
             f'- Size: {get_file_size_kb()} KB\n'
-            f'- Trả lời được {get_question_count()} câu hỏi.\n'
-            f'- Học được {get_unique_answer_count()} câu trả lời khác nhau.')
+            f'- Trả lời được {get_question_count()} câu.\n')
 
 
 def insert(questions, answers):
@@ -99,15 +98,6 @@ def get_iq():
 def get_question_count():
     data = get_chat_data()
     return len(data.keys())
-
-
-def get_unique_answer_count():
-    data = get_chat_data()
-    all_answers = []
-    for answers in data.values():
-        all_answers += answers
-    unique_answers = set(all_answers)
-    return len(unique_answers)
 
 
 def get_answers(question):

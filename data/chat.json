@@ -2,7 +2,6 @@
   "ngoai_tam_hieu_biet": [
     "Em kh\u00f4ng bi\u1ebft c\u00e2u n\u00e0y. D\u1ea1y em v\u1edbi [name] \u01a1i \ud83d\ude0b",
     "C\u00e2u n\u00e0y tr\u1ea3 l\u1eddi sao ta?",
-    "Kh\u00c3\u00b4ng hi\u00e1\u00bb\u0192u l\u00e1\u00ba\u00afm :3",
     "Ai bi\u1ebft?",
     "?"
   ],
@@ -228,5 +227,31 @@
   ],
   "m\u1ea5y_gi\u1edd_r\u1ed3i": [
     "[hour] gi\u1edd [min] ph\u00fat \u1ea1"
+  ],
+  "ch\u00e0o": [
+    "ch\u00e0o cc"
+  ],
+  "\u00f3c_ch\u00f3": [
+    "m oc cho hon",
+    "kh\u00f4n h\u01a1n m"
+  ],
+  "dm": [
+    "dmm lu\u00f4n"
+  ],
+  "bot_ngu": [
+    "m ngu h\u01a1n"
+  ],
+  "bot_h\u1ecdc_d\u1ed1t": [
+    "gi\u1ecfi h\u01a1n m"
+  ],
+  "tr\u1ebb_tr\u00e2u": [
+    "h\u1ecdc gi\u1ecfi"
+  ],
+  "\u0111u\u1ed5i_em_\u1edf_tr\u00ean_\u0111\u1ed3i": [
+    "penthouse \u1edf tr\u00ean \u0111\u1ed3i"
+  ],
+  "\u1edf_ngo\u00e0i_\u0111\u01b0\u1eddng_anh_l\u00e0_c\u00e1_m\u1eadp": [
+    "\u1edf nh\u00e0 anh l\u00e0 c\u00e1 nh\u1ecf",
+    "\u1edf nh\u00e0 anh l\u00e0 c\u00e1 ch\u1ebft \u0111u\u1ed1i"
   ]
 }
