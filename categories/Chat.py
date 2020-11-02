@@ -115,7 +115,6 @@ def get_unique_answer_count():
 
 def get_answers(question):
     question = format_question(question)
-    print(question)
     with open(CHAT_FILE) as file:
         data = json.load(file)
         answers = data.get(question, [])
@@ -130,6 +129,7 @@ def parse_answer(answer, ctx: commands.Context):
     if "[" not in answer:
         return answer
     markdown_dict = {
+        "[grade]": rd.choice(['NN', 'PA', 'CR', 'DI', 'HD']),
         "[name]": ctx.author.name,
         "[random-name]": rd.choice(ctx.guild.members).name
     }
