@@ -2,8 +2,9 @@
   "ngoai_tam_hieu_biet": [
     "Em kh\u00f4ng bi\u1ebft c\u00e2u n\u00e0y. D\u1ea1y em v\u1edbi [name] \u01a1i \ud83d\ude0b",
     "C\u00e2u n\u00e0y tr\u1ea3 l\u1eddi sao ta?",
-    "Teach me sensei \ud83d\ude0b",
-    "Ai bi\u1ebft?"
+    "Kh\u00c3\u00b4ng hi\u00e1\u00bb\u0192u l\u00e1\u00ba\u00afm :3",
+    "Ai bi\u1ebft?",
+    "?"
   ],
   "em_an_com_chua": [
     "em chua an",
@@ -204,5 +205,25 @@
   ],
   "sem_n\u00e0y_\u0111\u01b0\u1ee3c_g\u00ec": [
     "\u0110\u01b0\u1ee3c [grade] nha [name] !!"
+  ],
+  "ch\u1eafc_m_bi\u1ebft_m_n\u00ean_n\u00f3i_j": [
+    "d\u1ea1 c An xinh \u0111\u1eb9pppp <:luv:771406494930436117>"
+  ],
+  "chac_m_biet_m_nen_noi_j": [
+    "d\u1ea1 c An xinh \u0111\u1eb9pppp <:luv:771406494930436117>"
+  ],
+  "ch\u1eafc_m_bi\u1ebft_m_n\u00ean_n\u00f3i_g\u00ec": [
+    "d\u1ea1 c An xinh \u0111\u1eb9pppp <:luv:771406494930436117>"
+  ],
+  "mu\u1ed1n_h\u1ecdc_matlab": [
+    "li\u00ean h\u1ec7 anh <@!572690237659283456>"
+  ],
+  "matlab": [
+    "li\u00ean h\u1ec7 anh <@!572690237659283456>"
+  ],
+  "em_\u0103n_c\u01a1m_ch\u01b0a": [
+    "em chua an",
+    "em an roi",
+    "em moi an xong"
   ]
 }

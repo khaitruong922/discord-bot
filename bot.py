@@ -25,9 +25,9 @@ COGS = [
     Greeting(),
     Random(),
     Info(bot),
-    LOL(),
-    GitHub(),
-    TicTacToe(),
+    # LOL(),
+    # GitHub(),
+    # TicTacToe(),
     Task(),
 ]
 
