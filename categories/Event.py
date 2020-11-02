@@ -7,6 +7,7 @@ CHANNEL_IDS = {
     'welcome': 770950580373946390,
     'bot-command': 751355121455071233,
 }
+BOT_OFFEND_WORDS = ['bot ngu', 'bot oc cho', 'dm bot', 'đm bot', 'bot óc chó']
 BAD_WORDS_FILE = 'data/bad_words.json'
 
 
@@ -35,7 +36,7 @@ class Event(commands.Cog):
         bad_words = get_bad_words()
         name = message.author.name
         bad = any(word in bad_words for word in content.split())
-        if 'bot ngu' in content:
+        if any(word in content for word in BOT_OFFEND_WORDS):
             await channel.send(f'Dám chửi t à {name}?')
             return
         if not bad:
