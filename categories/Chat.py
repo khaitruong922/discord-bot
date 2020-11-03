@@ -36,7 +36,7 @@ class Chat(commands.Cog):
 
     @commands.command(aliases=['ask', 'c'], brief='Chat with bot.')
     async def chat(self, ctx: commands.Context, *args):
-        question = SPACE_SEP.join(args)
+        question = format_question(' '.join(args))
         answers = get_answers(question)
         answers = answers if answers else get_answers('ngoai_tam_hieu_biet')
         answers = answers if answers else ["Em không biết câu này. Dạy em với [name] ơi :yum:"]
@@ -102,7 +102,6 @@ def get_question_count():
 
 
 def get_answers(question):
-    question = format_question(question)
     data = get_chat_data()
     answers = data.get(question, [])
     return answers
@@ -139,4 +138,5 @@ def format_question(question):
     question = question.strip().lower()
     question = ''.join(c for c in question if c.isalnum() or c.isspace())
     question = SPACE_SEP.join(question.split())
+    print(question)
     return question
