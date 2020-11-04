@@ -37,7 +37,8 @@
   ],
   "em_muon_an_gi": [
     "t\u00f9y anh",
-    "\u0103n g\u00ec c\u0169ng \u0111c"
+    "\u0103n g\u00ec c\u0169ng \u0111c",
+    "\u0103n n\u0103n"
   ],
   "cach_build_yasuo": [
     "Build full AP, max W"
@@ -294,5 +295,17 @@
   ],
   "sem_n\u00e0y_\u0111\u01b0\u1ee3c_g\u00ec": [
     "\u0110\u01b0\u1ee3c [grade] nha [name]"
+  ],
+  "em_mu\u1ed1n_\u0103n_g\u00ec": [
+    "mu\u1ed1n \u0103n [gender]",
+    "t\u00f9y anh",
+    "\u0103n g\u00ec c\u0169ng \u0111c",
+    "\u0103n n\u0103n"
+  ],
+  "kh\u00f4ng_anh_ch\u1ee9_ai": [
+    "\u0111\u1ed1 em t\u00ecm \u0111\u01b0\u1ee3c ai gi\u1ed1ng anh th\u1ee9 hai"
+  ],
+  "bot_ph\u1ea3n_ch\u1ee7_\u00e0": [
+    "l\u00e0m nh\u01b0 m\u00e0y ngon l\u1eafm \u00e1 [name]"
   ]
 }

@@ -27,6 +27,7 @@ class Chat(commands.Cog):
     async def copy(self, ctx: commands.Context, *args):
         old_question, new_questions = ' '.join(args).split("->")
         new_questions = list(map(format_question, new_questions.split('&')))
+        old_question = format_question(old_question)
         answers = get_answers(old_question)
         if not answers:
             await ctx.send(f'Không tìm thấy câu hỏi: {old_question}')
@@ -38,7 +39,7 @@ class Chat(commands.Cog):
     async def chat(self, ctx: commands.Context, *args):
         question = format_question(' '.join(args))
         answers = get_answers(question)
-        answers = answers if answers else get_answers('ngoai_tam_hieu_biet')
+        answers = answers if answers else get_answers('ngoai tam hieu biet')
         answers = answers if answers else ["Em không biết câu này. Dạy em với [name] ơi :yum:"]
         answer = rd.choice(answers)
         answer = parse_answer(answer, ctx)
