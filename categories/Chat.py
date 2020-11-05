@@ -4,6 +4,7 @@ import os
 from _datetime import datetime
 from discord.ext import commands
 import math
+import re
 
 CHAT_FILE = 'data/chat.json'
 
@@ -43,6 +44,8 @@ class Chat(commands.Cog):
         answers = answers if answers else ["Em không biết câu này. Dạy em với [name] ơi :yum:"]
         answer = rd.choice(answers)
         answer = parse_answer(answer, ctx)
+        if not answer:
+            await ctx.send("Không có nội dung.")
         await ctx.send(answer)
 
     @commands.command(aliases=['chatbotinfo'], brief='Show chat bot data.')
@@ -124,7 +127,79 @@ def get_markdown_dict(ctx: commands.Context):
 
 
 def parse_answer(answer, ctx: commands.Context):
-    return translate(get_markdown_dict(ctx), answer)
+    answer = translate(get_markdown_dict(ctx), answer)
+    answer = parse_conditional(answer)
+    return answer
+
+
+def is_number(n):
+    try:
+        float(n)
+        return True
+    except ValueError:
+        return False
+
+
+def parse_conditional(answer):
+    condition_groups = re.findall('{.*?}', answer)
+    condition_inners = re.findall('{(.*?)}', answer)
+    for i, condition in enumerate(condition_inners):
+        condition = condition.strip()
+        conditional_data = get_conditional_data(condition)
+        if not conditional_data:
+            continue
+        var = conditional_data.get('var')
+        op = conditional_data.get('op')
+        compare_value = conditional_data.get('compare_value')
+        true_value = conditional_data.get('true_value')
+        false_value = conditional_data.get('false_value')
+        if is_number(var):
+            var = float(var)
+            if is_number(compare_value):
+                float(compare_value)
+        compare_result = compare(var, op, compare_value)
+        print(compare_result)
+        if compare_result is None:
+            continue
+        value = true_value if compare_result else false_value
+        answer = answer.replace(condition_groups[i], value)
+        # print(f'Result: {compare_result}')
+        # print(f'Value: {value}')
+    return answer
+
+
+def compare(this, op, that):
+    if op == '==':
+        return this == that
+    if op == '!=':
+        return this != that
+    if op == '>':
+        return this > that
+    if op == '>=':
+        return this >= that
+    if op == '<=':
+        return this <= that
+    if op == '<':
+        return this < that
+    if op.lower() == 'in':
+        try:
+            open_bracket, close_bracket = that[0], that[-1]
+            lower, upper = tuple(that[1:-1].strip().split(','))
+            if is_number(lower) and is_number(upper):
+                lower, upper = float(lower), float(upper)
+                lower_condition, upper_condition = False, False
+                if open_bracket == '(':
+                    lower_condition = lower < this
+                if open_bracket == '[':
+                    lower_condition = lower <= this
+                if close_bracket == ')':
+                    upper_condition = upper > this
+                if close_bracket == ']':
+                    upper_condition = upper >= this
+                return lower_condition and upper_condition
+        except IndexError:
+            return None
+    return None
 
 
 def translate(d: dict, content: str):
@@ -141,3 +216,27 @@ def format_question(question):
     question = SPACE_SEP.join(question.split())
     print(question)
     return question
+
+
+def get_conditional_data(content: str):
+    try:
+        parts = content.split('?')
+        condition = parts[0].split(' ')
+        var = condition[0].strip()
+        op = condition[1].strip()
+        compare_value = condition[2].strip()
+        values = parts[1].split(':')
+        true_value = values[0].strip()
+        false_value = ''
+        if len(values) > 1:
+            false_value = values[1].strip()
+
+        return {
+            'var': var,
+            'op': op,
+            'compare_value': compare_value,
+            'true_value': true_value,
+            'false_value': false_value
+        }
+    except IndexError:
+        return None

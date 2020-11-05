@@ -307,5 +307,11 @@
   ],
   "bot_ph\u1ea3n_ch\u1ee7_\u00e0": [
     "l\u00e0m nh\u01b0 m\u00e0y ngon l\u1eafm \u00e1 [name]"
+  ],
+  "ch\u00e0o_bot": [
+    "Ch\u00e0o bu\u1ed5i { [hour] in (0,10] ? s\u00e1ng}{[hour] in (10,13] ? tr\u01b0a}{[hour] in (13,17]? chi\u1ec1u}{[hour] in (17,23]? t\u1ed1i} [name]"
+  ],
+  "hello_bot": [
+    "Ch\u00e0o bu\u1ed5i { [hour] in (0,10] ? s\u00e1ng}{[hour] in (10,13] ? tr\u01b0a}{[hour] in (13,17]? chi\u1ec1u}{[hour] in (17,23]? t\u1ed1i} [name]"
   ]
 }
