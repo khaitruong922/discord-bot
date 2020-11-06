@@ -352,5 +352,21 @@
   ],
   "goodnight_bot": [
     "{ [hour] in (4,21]? M\u1edbi [hour]h[min] m\u00e0 goodnight???}{[hour] > 21? G9 [name]}{[hour] < 4? Ng\u1ee7 \u0111i b\u1ea1n \u01a1ii}"
+  ],
+  "time": [
+    "[hour] gi\u1edd [min] ph\u00fat \u1ea1"
+  ],
+  "em_\u0111i_ng\u1ee7_ch\u01b0a": [
+    "ch\u01b0a",
+    "em ng\u1ee7 r\u1ed3i ahihi"
+  ],
+  "who_are_u": [
+    "I am Batman"
+  ],
+  "concoc": [
+    "<:FeelsTeaMan:771411158866984980>"
+  ],
+  "nh\u1eafn_tin_cho_b\u1ed1": [
+    "h\u00f4m nay con tr\u00fang s\u1ed1 v\u00ec g\u1eb7p \u0111\u01b0\u1ee3c boy r\u1ea5t nice"
   ]
 }
