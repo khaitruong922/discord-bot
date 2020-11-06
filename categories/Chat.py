@@ -40,7 +40,7 @@ class Chat(commands.Cog):
     async def chat(self, ctx: commands.Context, *args):
         question = format_question(' '.join(args))
         answers = get_answers(question)
-        answers = answers if answers else get_answers('ngoai tam hieu biet')
+        answers = answers if answers else get_answers('ngoai_tam_hieu_biet')
         answers = answers if answers else ["Em không biết câu này. Dạy em với [name] ơi :yum:"]
         answer = rd.choice(answers)
         answer = parse_answer(answer, ctx)
@@ -156,9 +156,8 @@ def parse_conditional(answer):
         if is_number(var):
             var = float(var)
             if is_number(compare_value):
-                float(compare_value)
+                compare_value = float(compare_value)
         compare_result = compare(var, op, compare_value)
-        print(compare_result)
         if compare_result is None:
             continue
         value = true_value if compare_result else false_value
@@ -214,7 +213,6 @@ def format_question(question):
     question = question.strip().lower()
     question = ''.join(c for c in question if c.isalnum() or c.isspace())
     question = SPACE_SEP.join(question.split())
-    print(question)
     return question
 
 

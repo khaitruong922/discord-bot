@@ -81,7 +81,8 @@
   "hello": [
     "Hello [name]!",
     "ko th\u00edch ch\u00e0o [name], ok",
-    "hello"
+    "hello",
+    "Ch\u00e0o bu\u1ed5i { [hour] in (0,10] ? s\u00e1ng}{[hour] in (10,13] ? tr\u01b0a}{[hour] in (13,17]? chi\u1ec1u}{[hour] in (17,23]? t\u1ed1i} [name]"
   ],
   "con_tim_em_danh_cho_ai": [
     "d\u00e0nh cho [random-name]"
@@ -105,7 +106,8 @@
   "g9": [
     "Ch\u00fac [name] ng\u1ee7 ngon!!",
     "Oyasumi!!",
-    "Good night [name]!!"
+    "Good night [name]!!",
+    "{ [hour] in (4,21]? M\u1edbi [hour] gi\u1edd [min] m\u00e0 goodnight???}{[hour] > 21? G9 [name]}{[hour] < 4? Ng\u1ee7 \u0111i b\u1ea1n \u01a1ii}"
   ],
   "goodnight": [
     "Ch\u00fac [name] ng\u1ee7 ngon!!",
@@ -246,7 +248,8 @@
     "h\u1ecdc gi\u1ecfi"
   ],
   "\u0111u\u1ed5i_em_\u1edf_tr\u00ean_\u0111\u1ed3i": [
-    "penthouse \u1edf tr\u00ean \u0111\u1ed3i"
+    "penthouse \u1edf tr\u00ean \u0111\u1ed3i",
+    "penthouse \u1edf nh\u00e0 ch\u00f2i"
   ],
   "\u1edf_ngo\u00e0i_\u0111\u01b0\u1eddng_anh_l\u00e0_c\u00e1_m\u1eadp": [
     "\u1edf nh\u00e0 anh l\u00e0 c\u00e1 nh\u1ecf",
@@ -260,7 +263,8 @@
     "pikachu c\u00f3 l\u00f4ng"
   ],
   "tui_l\u00e0_ai": [
-    "l\u00e0 T\u00edn"
+    "l\u00e0 T\u00edn",
+    "L\u00e0 tui \u0111\u00f3"
   ],
   "m\u00e0y_\u0103n_c\u00e1i_g\u00ec_": [
     "\u0103n c\u1ee9t"
@@ -297,7 +301,6 @@
     "\u0110\u01b0\u1ee3c [grade] nha [name]"
   ],
   "em_mu\u1ed1n_\u0103n_g\u00ec": [
-    "mu\u1ed1n \u0103n [gender]",
     "t\u00f9y anh",
     "\u0103n g\u00ec c\u0169ng \u0111c",
     "\u0103n n\u0103n"
@@ -313,5 +316,41 @@
   ],
   "hello_bot": [
     "Ch\u00e0o bu\u1ed5i { [hour] in (0,10] ? s\u00e1ng}{[hour] in (10,13] ? tr\u01b0a}{[hour] in (13,17]? chi\u1ec1u}{[hour] in (17,23]? t\u1ed1i} [name]"
+  ],
+  "sem_n\u00e0y_\u0111c_g\u00ec": [
+    "\u0110\u01b0\u1ee3c [grade] nha [name]"
+  ],
+  "sem_n\u00e0y_\u0111c_j": [
+    "\u0110\u01b0\u1ee3c [grade] nha [name]"
+  ],
+  "may_gio_roi": [
+    "[hour] gi\u1edd [min] ph\u00fat \u1ea1"
+  ],
+  "n\u00ean_anh_l\u00f9i_b\u01b0\u1edbc_v\u1ec1_sau": [
+    "\u0110\u1ec3 th\u1ea5y em r\u00f5 h\u01a1n \ud83d\ude0a"
+  ],
+  "\u0111\u1ec3_c\u00f3_th\u1ec3_ng\u1eafm_em_t\u1eeb_xa_\u00e2u_y\u1ebfm_h\u01a1n": [
+    "V\u00e0 cu\u1ed9c s\u1ed1ng b\u1ed7ng ch\u1ed1c thu b\u00e9 l\u1ea1i v\u1eeba b\u1eb1ng m\u1ed9t c\u00f4 g\u00e1i \ud83d\ude09"
+  ],
+  "nhi\u1ec1u_ti\u1ec1n_\u0111\u1ec3_l\u00e0m_g\u00ec": [
+    "nhi\u1ec1u qu\u00e1 th\u00ec tuy\u1ec3n th\u00eam ng\u01b0\u1eddi train tui \u0111i"
+  ],
+  "\u0111u\u1ed5i_e_\u1edf_tr\u00ean_\u0111\u1ed3i": [
+    "penthouse \u1edf nh\u00e0 ch\u00f2i"
+  ],
+  "\u0111u\u1ed5i_em_d\u01b0\u1edbi_\u0111\u1ed3ng_b\u1eb1ng": [
+    "penthouse tr\u00ean Cao B\u1eb1ng"
+  ],
+  "pi": [
+    "3.14159265359"
+  ],
+  "tui_la_ai": [
+    "L\u00e0 tui \u0111\u00f3"
+  ],
+  "g9_bot": [
+    "{ [hour] in (4,21]? M\u1edbi [hour]h[min] m\u00e0 goodnight???}{[hour] > 21? G9 [name]}{[hour] < 4? Ng\u1ee7 \u0111i b\u1ea1n \u01a1ii}"
+  ],
+  "goodnight_bot": [
+    "{ [hour] in (4,21]? M\u1edbi [hour]h[min] m\u00e0 goodnight???}{[hour] > 21? G9 [name]}{[hour] < 4? Ng\u1ee7 \u0111i b\u1ea1n \u01a1ii}"
   ]
 }
