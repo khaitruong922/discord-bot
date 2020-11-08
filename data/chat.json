@@ -222,9 +222,7 @@
     "li\u00ean h\u1ec7 anh <@!572690237659283456>"
   ],
   "em_\u0103n_c\u01a1m_ch\u01b0a": [
-    "em chua an",
-    "em an roi",
-    "em moi an xong"
+    "em \u0103n v\u1edbi b\u1ea1n trai c\u1ee7a em r\u1ed3i :3"
   ],
   "m\u1ea5y_gi\u1edd_r\u1ed3i": [
     "[hour] gi\u1edd [min] ph\u00fat \u1ea1"
@@ -347,7 +345,7 @@
   ],
   "tui_la_ai": [
     "L\u00e0 tui \u0111\u00f3",
-    "Bạn là [name]"
+    "B\u00e1\u00ba\u00a1n l\u00c3\u00a0 [name]"
   ],
   "g9_bot": [
     "{ [hour] in (4,21]? M\u1edbi [hour]h[min] m\u00e0 goodnight???}{[hour] > 21? G9 [name]}{[hour] < 4? Ng\u1ee7 \u0111i b\u1ea1n \u01a1ii}"
