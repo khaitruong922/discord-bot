@@ -346,7 +346,8 @@
     "3.14159265359"
   ],
   "tui_la_ai": [
-    "L\u00e0 tui \u0111\u00f3"
+    "L\u00e0 tui \u0111\u00f3",
+    "Bạn là [name]"
   ],
   "g9_bot": [
     "{ [hour] in (4,21]? M\u1edbi [hour]h[min] m\u00e0 goodnight???}{[hour] > 21? G9 [name]}{[hour] < 4? Ng\u1ee7 \u0111i b\u1ea1n \u01a1ii}"
