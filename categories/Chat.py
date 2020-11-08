@@ -1,13 +1,11 @@
 import random as rd
-import json
-import os
+from utils.JSONFileIO import JSONFileIO
 from _datetime import datetime
 from discord.ext import commands
 import math
 import re
 
-CHAT_FILE = 'data/chat.json'
-
+chat_file = JSONFileIO('data/chat.json')
 NO_QUESTIONS = 'Câu hỏi đâu?'
 NO_ANSWERS = 'Câu trả lời đâu?'
 INSERT_SUCCESSFULLY = ':thumbsup:'
@@ -37,9 +35,13 @@ class Chat(commands.Cog):
         await ctx.send(message)
 
     @commands.command(aliases=['ask', 'c'], brief='Chat with bot.')
-    async def chat(self, ctx: commands.Context, *args):
+    async def chat(self, ctx: commands.Context, *args, **kwargs):
         question = format_question(' '.join(args))
         answers = get_answers(question)
+        if kwargs.get('no_default_reply') and not answers:
+            print('No answer')
+            return
+
         answers = answers if answers else get_answers('ngoai_tam_hieu_biet')
         answers = answers if answers else ["Em không biết câu này. Dạy em với [name] ơi :yum:"]
         answer = rd.choice(answers)
@@ -53,7 +55,7 @@ class Chat(commands.Cog):
         await ctx.send(
             f'Chat Bot Profile:\n'
             f'- {round(get_iq(), 2)} IQ\n'
-            f'- Size: {get_file_size_kb()} KB\n'
+            f'- Size: {chat_file.get_size()} KB\n'
             f'- Trả lời được {get_question_count()} câu.\n')
 
 
@@ -65,34 +67,19 @@ def insert(questions, answers):
     if not answers:
         return NO_ANSWERS
     old_iq = get_iq()
-    data = get_chat_data()
+    data = chat_file.get()
     for question in questions:
         file_answers = data.get(question, [])
         new_answers = [answer for answer in answers if answer not in file_answers and answer != '']
         file_answers += new_answers
         data[question] = file_answers
-    write_chat_data(data)
+    chat_file.write(data)
     new_iq = get_iq()
     return f'Chỉ số IQ tăng thêm {round(new_iq - old_iq, 2)}'
 
 
-def get_chat_data():
-    with open(CHAT_FILE) as file:
-        return json.load(file)
-
-
-def write_chat_data(data):
-    with open(CHAT_FILE, 'w') as file:
-        json_text = json.dumps(data, indent=2)
-        file.write(json_text)
-
-
-def get_file_size_kb():
-    return round(os.stat(CHAT_FILE).st_size / 1024, 2)
-
-
 def get_iq():
-    data = get_chat_data()
+    data = chat_file.get()
     answer_count = 0
     for answers in data.values():
         answer_count += len(answers)
@@ -101,12 +88,12 @@ def get_iq():
 
 
 def get_question_count():
-    data = get_chat_data()
+    data = chat_file.get()
     return len(data.keys())
 
 
 def get_answers(question):
-    data = get_chat_data()
+    data = chat_file.get()
     answers = data.get(question, [])
     return answers
 

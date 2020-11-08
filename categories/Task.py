@@ -1,7 +1,7 @@
 from discord.ext import commands
-import json
+from utils.JSONFileIO import JSONFileIO
 
-BAD_WORDS_FILE = 'data/bad_words.json'
+blacklist_file = JSONFileIO('data/blacklist.json')
 
 
 class Task(commands.Cog):
@@ -11,34 +11,25 @@ class Task(commands.Cog):
         await ctx.channel.purge(limit=amount)
 
     @commands.command(brief='Add restricted word.')
+    @commands.has_permissions(manage_messages=True)
     async def ban(self, ctx: commands.Context, word):
-        bad_words = get_bad_words()
+        bad_words = blacklist_file.get()
         if word in bad_words:
             await ctx.send(f'Từ {word} đã có trong danh sách đen rồi.')
             return
-        bad_words.append(word)
-        write_bad_words(bad_words)
+        bad_words.append(word.lower())
+        blacklist_file.write(bad_words)
         await ctx.send(f'Từ {word} mới vô danh sách đen. Chúc bạn xài từ cẩn thận.')
 
     @commands.command(brief='Remove restricted word.')
+    @commands.has_permissions(manage_messages=True)
     async def rmban(self, ctx: commands.Context, word):
-        bad_words = get_bad_words()
-        bad_words.remove(word)
-        write_bad_words(bad_words)
+        bad_words = blacklist_file.get()
+        bad_words.remove(word.lower())
+        blacklist_file.write(bad_words)
         await ctx.send(f'Từ {word} đã bị xoá khỏi danh sách đen. Chúc bạn xài từ cẩn thận.')
 
     @ban.error
     async def ban_error(self, ctx: commands.Context, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send('Muốn ban hay không nói một lời.')
-
-
-def get_bad_words():
-    with open(BAD_WORDS_FILE) as file:
-        return json.load(file)
-
-
-def write_bad_words(data):
-    with open(BAD_WORDS_FILE, 'w') as file:
-        json_text = json.dumps(data, indent=2)
-        file.write(json_text)
